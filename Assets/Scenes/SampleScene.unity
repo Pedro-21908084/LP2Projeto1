@@ -202,7 +202,61 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &914069378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 914069380}
+  - component: {fileID: 914069381}
+  m_Layer: 0
+  m_Name: Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &914069380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914069378}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &914069381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914069378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e783a43bf5609068703b4ae6c2fe2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configuredTerrains:
+  - {fileID: 11400000, guid: 8e26ea76076a2ea2e94c2cee61d17bfc, type: 2}
+  - {fileID: 11400000, guid: 38716415e9c878c08bb9ae20be5455e9, type: 2}
+  - {fileID: 11400000, guid: 51b267559d53a3dee9aeacfeb330f623, type: 2}
+  - {fileID: 11400000, guid: dbe79c616145f992299f41064564e074, type: 2}
+  configuredResources:
+  - {fileID: 11400000, guid: 2c4b766a5abe4ecba9d8d9d8cc8066be, type: 2}
+  - {fileID: 11400000, guid: 0ff8a541ca17111c5a02d87441b10c72, type: 2}
+  - {fileID: 11400000, guid: 3df9db3abd7f11535a3fc3d79ba311fb, type: 2}
