@@ -17,13 +17,6 @@ public interface IGameView
     public TextMeshProUGUI TotalCoinTxt { get; set; }
     public TextMeshProUGUI TotalFoodTxt { get; set; }
     
-    //Info Panel Icons
-    public Sprite PlantIcon { get; set;}
-    public Sprite AnimalsIcon { get; set; }
-    public Sprite MetalsIcon { get; set; }
-    public Sprite FossilFuelIcon { get; set; }
-    public Sprite LuxuryIcon { get; set; }
-    public Sprite PollutionIcon { get; set; }
 
     //Buttons
     public Button forTheFuture1 { get; set; }
@@ -40,5 +33,6 @@ public interface IGameView
     public void ShowTileInfo();
     public void ShowMapLegend();
     public void ShowPauseMenu();
+    public Input GetPlayerInput();
 
 }
