@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058c8cbfd72e595339a4a7e329035a0f, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
-  key: 
+  key: water
   coin: 0
-  food: 0
+  food: 1

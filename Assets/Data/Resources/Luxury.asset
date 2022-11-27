@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b706582f6342fe69af63cb2ec76fd7, type: 3}
   m_Name: Luxury
   m_EditorClassIdentifier: 
-  key: 
-  coinModifier: 0
-  foodModifier: 0
+  key: luxury
+  coinModifier: 4
+  foodModifier: -1
