@@ -24,7 +24,6 @@ public class LoadSystem : MonoBehaviour
     private void Start()
     {
         SearchForMaps();
-        LoadMapAt(0);
     }
 
     public void SearchForMaps()
@@ -51,7 +50,8 @@ public class LoadSystem : MonoBehaviour
         }
     }
 
-    public Tile[][] LoadMapAt(int index)
+    public Tile[][] LoadMapAt(int index, Dictionary<string, TerrainData> terrainDatas, 
+        Dictionary<string, ResourceData> resourceDatas)
     {
         Tile[][] map;
         
