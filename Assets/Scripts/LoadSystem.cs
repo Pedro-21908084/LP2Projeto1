@@ -1,30 +1,24 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
-using System.Linq;
 
-public class LoadSystem : MonoBehaviour
+public class LoadSystem
 {
     private const string MAP_TYPE = "*.map4x";
+    private const string FOLDER_NAME = "map4xfiles";
+    private const string COMMENT_SYMBOL = "#";
     
     public List<string> MapsFound{get; private set;}
     private string path;
 
-    private void Awake()
+    public LoadSystem(string folder = FOLDER_NAME)
     {
         path = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-            "map4xfiles");
+            folder);
 
         MapsFound = new List<string>();
-
-    }
-
-    private void Start()
-    {
-        SearchForMaps();
     }
 
     public void SearchForMaps()
@@ -72,7 +66,7 @@ public class LoadSystem : MonoBehaviour
             do
             {
                 string line = mapRead.ReadLine();
-                string noComments =  line.Split("#")[0];
+                string noComments =  line.Split(COMMENT_SYMBOL)[0];
                 
                 if(noComments.Length > 0)
                 {
@@ -101,7 +95,7 @@ public class LoadSystem : MonoBehaviour
                     for(int j = 0; j < cols; j++)
                     {
                         string line = mapRead.ReadLine();
-                        string noComments =  line.Split("#")[0];
+                        string noComments =  line.Split(COMMENT_SYMBOL)[0];
                         if(noComments.Length > 0)
                         {
                             string[] commands = noComments.Trim().Split(" ");
@@ -126,8 +120,6 @@ public class LoadSystem : MonoBehaviour
             Debug.Log("Error: Map not found");
             map = null;
         }
-
         return map;
-        
     }
 }

@@ -29,7 +29,8 @@ public class Controller : MonoBehaviour
 
         game = new Game(terrainDictionary, resourceDictionary);
 
-        loadSystem = FindObjectOfType<LoadSystem>();
+        loadSystem = new LoadSystem();
+        loadSystem.SearchForMaps();
     }
 
     private void Update()
