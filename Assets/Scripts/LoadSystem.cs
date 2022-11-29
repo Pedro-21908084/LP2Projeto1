@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using System.Linq;
 
 public class LoadSystem : MonoBehaviour
 {
@@ -50,8 +51,7 @@ public class LoadSystem : MonoBehaviour
         }
     }
 
-    public Tile[][] LoadMapAt(int index, Dictionary<string, TerrainData> terrainDatas, 
-        Dictionary<string, ResourceData> resourceDatas)
+    public Tile[][] LoadMapAt(int index, Game game)
     {
         Tile[][] map;
         
@@ -78,7 +78,7 @@ public class LoadSystem : MonoBehaviour
                 {
                     string[] commands = noComments.Split(" ");
                     if(commands.Length >=2 && int.TryParse(commands[0], out rows) 
-                        && int.TryParse(commands[0], out cols))
+                        && int.TryParse(commands[1], out cols))
                     {
                         findMapSize  = true;
                     }
@@ -104,34 +104,18 @@ public class LoadSystem : MonoBehaviour
                         string noComments =  line.Split("#")[0];
                         if(noComments.Length > 0)
                         {
-                            string[] commands = noComments.Split(" ");
+                            string[] commands = noComments.Trim().Split(" ");
+                            List<string> resources = new List<string>();
 
-                            if(terrainDatas.ContainsKey(commands[0]))
+                            if(commands.Length > 1)
                             {
-                                Terrain terrain = new Terrain(terrainDatas[commands[0]].key,
-                                    terrainDatas[commands[0]].coin, terrainDatas[commands[0]].food);
-                                
-                                List<Resource> tileResources = new List<Resource>();
-
-                                if(commands.Length > 1)
+                                for(int l = 1; l < commands.Length; l ++)
                                 {
-                                    for(int l = 1; l < commands.Length; l ++)
-                                    {
-                                        if(resourceDatas.ContainsKey(commands[l]))
-                                            tileResources.Add(new Resource(
-                                                resourceDatas[commands[l]].key,
-                                                resourceDatas[commands[l]].coinModifier,
-                                                resourceDatas[commands[l]].foodModifier));
-                                    }
+                                    resources.Add(commands[l]);
                                 }
-
-                                map[i][j] = new Tile(terrain, tileResources);
-                            }else
-                            {
-                                Terrain terrain = new Terrain("empty",0, 0);
-                                List<Resource> tileResources = new List<Resource>();
-                                map[i][j] = new Tile(terrain, tileResources);
                             }
+
+                            map[i][j] = game.Tile(commands[0], resources.ToArray());
                         }
                     }
                 }

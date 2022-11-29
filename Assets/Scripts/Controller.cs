@@ -7,25 +7,27 @@ public class Controller : MonoBehaviour
     [SerializeField] private ResourceData[] resourcesAvailable;
     [SerializeField] private TerrainData[] terrainsAvailable;
 
-    public Dictionary<string, TerrainData> TerrainDictionary{get; private set;}
-    public Dictionary<string, ResourceData> ResourceDictionary{get; private set;}
+    private Game game;
+
     private Tile[][] map;
     private LoadSystem loadSystem;
     
     // Start is called before the first frame update
     void Awake()
     {
-        ResourceDictionary = new Dictionary<string, ResourceData>();
+        IDictionary<string, Resource> resourceDictionary = new Dictionary<string, Resource>();
         foreach(ResourceData data in resourcesAvailable)
         {
-            ResourceDictionary.Add(data.key, data);
+            resourceDictionary.Add(data.key, new Resource(data.key, data.coinModifier, data.foodModifier));
         }
 
-        TerrainDictionary = new Dictionary<string, TerrainData>();
+        IDictionary<string, Terrain> terrainDictionary = new Dictionary<string, Terrain>();
         foreach(TerrainData data in terrainsAvailable)
         {
-            TerrainDictionary.Add(data.key, data);
+            terrainDictionary.Add(data.key, new Terrain(data.key, data.coin, data.food));
         }
+
+        game = new Game(terrainDictionary, resourceDictionary);
 
         loadSystem = FindObjectOfType<LoadSystem>();
     }
@@ -37,7 +39,7 @@ public class Controller : MonoBehaviour
 
     public void LoadMap(int index)
     {
-        map = loadSystem.LoadMapAt(index, TerrainDictionary, ResourceDictionary);
+        map = loadSystem.LoadMapAt(index, game);
         PrintMap();
     }
 

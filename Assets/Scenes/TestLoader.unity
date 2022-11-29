@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -359.80002, y: -178}
+  m_AnchoredPosition: {x: -320, y: -210.05}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &112769473
@@ -290,11 +290,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2c4b766a5abe4ecba9d8d9d8cc8066be, type: 2}
   - {fileID: 11400000, guid: 0ff8a541ca17111c5a02d87441b10c72, type: 2}
   - {fileID: 11400000, guid: 3df9db3abd7f11535a3fc3d79ba311fb, type: 2}
+  - {fileID: 11400000, guid: 41b253e78db4edf4ab5952bcf559be68, type: 2}
+  - {fileID: 11400000, guid: 06f2e79ca6deaec459664055830de2f3, type: 2}
+  - {fileID: 11400000, guid: a7ef2061fa9b73b4e98f1e7c67a8e84f, type: 2}
   terrainsAvailable:
   - {fileID: 11400000, guid: 8e26ea76076a2ea2e94c2cee61d17bfc, type: 2}
   - {fileID: 11400000, guid: 38716415e9c878c08bb9ae20be5455e9, type: 2}
   - {fileID: 11400000, guid: 51b267559d53a3dee9aeacfeb330f623, type: 2}
   - {fileID: 11400000, guid: dbe79c616145f992299f41064564e074, type: 2}
+  - {fileID: 11400000, guid: 7bf57473f521d4747aaaa7521e048424, type: 2}
 --- !u!4 &339043510
 Transform:
   m_ObjectHideFlags: 0
@@ -426,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
