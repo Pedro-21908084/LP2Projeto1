@@ -38,6 +38,21 @@ public class Controller : MonoBehaviour
     public void LoadMap(int index)
     {
         map = loadSystem.LoadMapAt(index, TerrainDictionary, ResourceDictionary);
+        PrintMap();
+    }
+
+    private void PrintMap()
+    {
+        for(int i = 0; i < map.Length; i++)
+        {
+            string line = "";
+            for(int j = 0; j < map[i].Length; j++)
+            {
+                line += "|"+ map[i][j].Terrain.Type;
+            }
+            line+="|";
+            Debug.Log(line);
+        }
     }
 
 

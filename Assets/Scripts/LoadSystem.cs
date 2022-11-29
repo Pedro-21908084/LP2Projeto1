@@ -98,7 +98,7 @@ public class LoadSystem : MonoBehaviour
                 {
                     map[i] = new Tile[cols];
 
-                    /*for(int j = 0; j < cols; j++)
+                    for(int j = 0; j < cols; j++)
                     {
                         string line = mapRead.ReadLine();
                         string noComments =  line.Split("#")[0];
@@ -106,14 +106,34 @@ public class LoadSystem : MonoBehaviour
                         {
                             string[] commands = noComments.Split(" ");
 
-                            if(commands.Length >=2 && int.TryParse(commands[0], out rows) 
-                                && int.TryParse(commands[0], out cols))
+                            if(terrainDatas.ContainsKey(commands[0]))
                             {
-                                findMapSize  = true;
+                                Terrain terrain = new Terrain(terrainDatas[commands[0]].key,
+                                    terrainDatas[commands[0]].coin, terrainDatas[commands[0]].food);
+                                
+                                List<Resource> tileResources = new List<Resource>();
+
+                                if(commands.Length > 1)
+                                {
+                                    for(int l = 1; l < commands.Length; l ++)
+                                    {
+                                        if(resourceDatas.ContainsKey(commands[l]))
+                                            tileResources.Add(new Resource(
+                                                resourceDatas[commands[l]].key,
+                                                resourceDatas[commands[l]].coinModifier,
+                                                resourceDatas[commands[l]].foodModifier));
+                                    }
+                                }
+
+                                map[i][j] = new Tile(terrain, tileResources);
+                            }else
+                            {
+                                Terrain terrain = new Terrain("empty",0, 0);
+                                List<Resource> tileResources = new List<Resource>();
+                                map[i][j] = new Tile(terrain, tileResources);
                             }
                         }
-                    }*/
-                    print(rows + ":" + cols);
+                    }
                 }
             }
 
