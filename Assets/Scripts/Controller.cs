@@ -6,13 +6,14 @@ public class Controller : MonoBehaviour
 {
     [SerializeField] private ResourceData[] resourcesAvailable;
     [SerializeField] private TerrainData[] terrainsAvailable;
+    [SerializeField] private TestView view;
 
     private Game game;
 
     private Tile[][] map;
     private LoadSystem loadSystem;
     
-    // Start is called before the first frame update
+
     void Awake()
     {
         IDictionary<string, Resource> resourceDictionary = new Dictionary<string, Resource>();
@@ -31,6 +32,8 @@ public class Controller : MonoBehaviour
 
         loadSystem = new LoadSystem();
         loadSystem.SearchForMaps();
+
+        view.controller = this;
     }
 
     private void Update()
@@ -41,22 +44,16 @@ public class Controller : MonoBehaviour
     public void LoadMap(int index)
     {
         map = loadSystem.LoadMapAt(index, game);
-        PrintMap();
+
+        view.ShowMap(map);
     }
 
-    private void PrintMap()
+    public void SelectTileAt(int rows, int cols)
     {
-        for(int i = 0; i < map.Length; i++)
+        if(map != null)
         {
-            string line = "";
-            for(int j = 0; j < map[i].Length; j++)
-            {
-                line += "|"+ map[i][j].Terrain.Type;
-            }
-            line+="|";
-            Debug.Log(line);
+            view.ShowTileInfo(map[rows][cols]);
         }
     }
-
 
 }

@@ -44,6 +44,10 @@ public class GameBehaviour : MonoBehaviour
                 Debug.Log(string.Format("[{0}, {1}] {2}, {3}, {4}",
                     i, j, tiles[i, j].Terrain.Type,
                     tiles[i, j].Coin, tiles[i, j].Food));
+                if(tiles[i, j].Resources != null)
+                    Debug.Log("Tiles are working");
+                else
+                    Debug.Log("Huston, we've got a problem");
             }
         }
     }

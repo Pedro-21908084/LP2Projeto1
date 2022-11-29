@@ -99,17 +99,18 @@ public class LoadSystem
                         if(noComments.Length > 0)
                         {
                             string[] commands = noComments.Trim().Split(" ");
-                            List<string> resources = new List<string>();
+                            string[] resources = new string[commands.Length-1];
 
                             if(commands.Length > 1)
                             {
                                 for(int l = 1; l < commands.Length; l ++)
                                 {
-                                    resources.Add(commands[l]);
+                                    resources[l-1] = commands[l];
                                 }
                             }
+                            map[i][j] = game.Tile(commands[0], resources);
 
-                            map[i][j] = game.Tile(commands[0], resources.ToArray());
+                            
                         }
                     }
                 }

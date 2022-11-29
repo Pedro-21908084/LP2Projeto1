@@ -5,7 +5,7 @@ public class Tile
     private IList<Resource> resources;
 
     public Terrain Terrain { get; }
-    public IEnumerable<Resource> Resources { get; }
+    public IEnumerable<Resource> Resources { get => resources; }
 
     public int Coin
     {
