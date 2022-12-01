@@ -31,4 +31,4 @@ e do **observer pattern**, a nível da GUI, com UnityEvents, para ligar o
 input do utilizador à ativação de funções do controlador de forma pouco estrita
 (*loose coupling*).
 
-TODO: add UML diagram
+![Diagrama UML simples](simple-uml.png)
