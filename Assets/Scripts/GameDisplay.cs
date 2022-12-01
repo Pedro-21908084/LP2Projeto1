@@ -35,7 +35,10 @@ public class GameDisplay : MonoBehaviour, IGameView
 
     [SerializeField]
     private GameObject terrainPrefab;
+
+    [field:SerializeField]
     public float XPadding { get; set; }
+    [field: SerializeField]
     public float YPadding { get; set; }
 
     private GameObject[][] terrainsStored;
