@@ -550,6 +550,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dbe79c616145f992299f41064564e074, type: 2}
   - {fileID: 11400000, guid: 7bf57473f521d4747aaaa7521e048424, type: 2}
   viewObject: {fileID: 606932169}
+  xPadding: 80
+  yPadding: 80
 --- !u!4 &339043510
 Transform:
   m_ObjectHideFlags: 0

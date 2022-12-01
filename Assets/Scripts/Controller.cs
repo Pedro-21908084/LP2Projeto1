@@ -7,6 +7,8 @@ public class Controller : MonoBehaviour
     [SerializeField] private ResourceData[] resourcesAvailable;
     [SerializeField] private TerrainData[] terrainsAvailable;
     [field: SerializeField] private Component viewObject;
+    [SerializeField] private float xPadding;
+    [SerializeField] private float yPadding;
     private IGameView view;
 
     private GameData gameData;
@@ -34,7 +36,11 @@ public class Controller : MonoBehaviour
         loadSystem = new LoadSystem();
 
         if(viewObject is IGameView)
+        {
             view = viewObject as IGameView;
+            view.SetupDisplay(this, xPadding, yPadding, gameData);
+        }
+            
 
         LoadMap();
     }
@@ -52,7 +58,7 @@ public class Controller : MonoBehaviour
         {
             map = loadSystem.LoadMapAt(mapIndex.Value, gameData);
 
-            view.ShowMap(map, gameData);
+            view.ShowMap(map);
         }
 
         
@@ -62,7 +68,7 @@ public class Controller : MonoBehaviour
     {
         if(map != null)
         {
-            view.ShowTileInfo(map[rows][cols], gameData);
+            view.ShowTileInfo(map[rows][cols]);
         }
     }
 
