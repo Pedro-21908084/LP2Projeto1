@@ -65,7 +65,7 @@ public class LoadSystem
         }
     }
 
-    public Tile[][] LoadMapAt(int index, Game game)
+    public Tile[][] LoadMapAt(int index, GameData game)
     {
         Tile[][] map;
         
@@ -119,18 +119,23 @@ public class LoadSystem
                         if(noComments.Length > 0)
                         {
                             string[] commands = noComments.Trim().Split(" ");
-                            string[] resources = new string[commands.Length-1];
+
+                            TerrainData tData = game.GetTerrain(commands[0]);
+                            Terrain terrain = new Terrain(tData.key, tData.coin, tData.food);
+
+                            Resource[] resources = new Resource[commands.Length-1];
 
                             if(commands.Length > 1)
                             {
                                 for(int l = 1; l < commands.Length; l ++)
                                 {
-                                    resources[l-1] = commands[l];
+                                    ResourceData rData = game.GetResource(commands[l]);
+                                    
+                                    resources[l-1] = new Resource(rData.key, 
+                                        rData.coinModifier, rData.foodModifier);
                                 }
                             }
-                            map[i][j] = game.Tile(commands[0], resources);
-
-                            
+                            map[i][j] = new Tile(terrain, resources);
                         }
                     }
                 }
