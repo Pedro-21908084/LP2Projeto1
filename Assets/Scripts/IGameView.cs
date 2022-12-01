@@ -8,10 +8,10 @@ public interface IGameView
 {
     //Methods
     public void ShowMap(Tile[][] map, GameData gameData);
-    public void ShowTileResources(Tile tile, GameData gameData);
+    public void ShowTileResources(Tile tile, GameData gameData, GameObject gameObject);
     public void ShowButtons();
     public void HideButtons();
-    public void ShowTileInfo(Tile tile, GameData gameData, GameObject gameObject);
+    public void ShowTileInfo(Tile tile, GameData gameData);
     public void HideTileInfo();
     public void ShowMapLegend();
     public void HideMapLegend();
