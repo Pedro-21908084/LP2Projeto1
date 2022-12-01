@@ -27,6 +27,11 @@ public class GameDisplay : MonoBehaviour, IGameView
     [SerializeField]
     private GameObject UiMessage;
 
+    [SerializeField]
+    private GameObject instStart;
+
+
+
     public void ShowButtons()
     {
         foreach (Button button in gameButtons)
@@ -46,7 +51,7 @@ public class GameDisplay : MonoBehaviour, IGameView
 
     public void ShowMap(Tile[][] map, float xPadding, float yPadding)
     {
-        Vector2 screenCorner = Camera.main.ScreenToViewportPoint(new Vector2(0, Camera.main.pixelHeight));
+        
         for (int i = 0; i < map.Length; i++)
         {
             for (int j = 0; j < map[i].Length; j++)
@@ -111,15 +116,7 @@ public class GameDisplay : MonoBehaviour, IGameView
         UiMessage.SetActive(false);
     }
 
-    public void ZoomIn() 
-    {
-        Camera.main.orthographicSize++;
-    }
-
-    public void ZoomOut() 
-    {
-        Camera.main.orthographicSize--;
-    }
+    
 
 
 }

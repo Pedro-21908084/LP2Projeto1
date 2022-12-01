@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Plants
   m_EditorClassIdentifier: 
   key: plants
-  displayName: Plants
   coinModifier: 1
   foodModifier: 2
+  sprite: {fileID: 21300000, guid: 372e7b39fc8f34549ac25d8757965a2c, type: 3}

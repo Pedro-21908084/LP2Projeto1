@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Plains
   m_EditorClassIdentifier: 
   key: plains
-  displayName: Plains
   coin: 0
   food: 2
+  sprite: {fileID: 21300000, guid: 584114e721742d94a99cabbee24321a2, type: 3}

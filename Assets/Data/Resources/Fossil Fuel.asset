@@ -15,3 +15,4 @@ MonoBehaviour:
   key: fossilfuel
   coinModifier: 5
   foodModifier: -3
+  sprite: {fileID: 21300000, guid: 1a96ab5f501a8e84c9016458682e1ccb, type: 3}
