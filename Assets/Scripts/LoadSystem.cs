@@ -12,6 +12,24 @@ public class LoadSystem
     public List<string> MapsFound{get; private set;}
     private string path;
 
+    public static void SaveMapName(string map)
+    {
+        PlayerPrefs.SetString("MapToLoad", map);
+    }
+
+    public int? MapToLoad()
+    {
+        string mapToLoad = PlayerPrefs.GetString("MapToLoad");
+
+        if(MapsFound.Contains(mapToLoad))
+        {
+            return MapsFound.FindIndex( 0, MapsFound.Count, x => x==mapToLoad);
+        }else
+        {
+            return null;
+        }
+    }
+
     public LoadSystem(string folder = FOLDER_NAME)
     {
         path = Path.Combine(
@@ -19,6 +37,7 @@ public class LoadSystem
             folder);
 
         MapsFound = new List<string>();
+        SearchForMaps();
     }
 
     public void SearchForMaps()

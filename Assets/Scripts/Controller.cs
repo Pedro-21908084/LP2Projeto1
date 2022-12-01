@@ -31,9 +31,11 @@ public class Controller : MonoBehaviour
         game = new Game(terrainDictionary, resourceDictionary);
 
         loadSystem = new LoadSystem();
-        loadSystem.SearchForMaps();
+        
 
         view.controller = this;
+
+        LoadMap();
     }
 
     private void Update()
@@ -41,11 +43,18 @@ public class Controller : MonoBehaviour
         
     }
 
-    public void LoadMap(int index)
+    private void LoadMap()
     {
-        map = loadSystem.LoadMapAt(index, game);
+        int? mapIndex = loadSystem.MapToLoad();
+        
+        if(mapIndex.HasValue)
+        {
+            map = loadSystem.LoadMapAt(mapIndex.Value, game);
 
-        view.ShowMap(map);
+            view.ShowMap(map);
+        }
+
+        
     }
 
     public void SelectTileAt(int rows, int cols)
