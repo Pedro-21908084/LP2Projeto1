@@ -21,6 +21,8 @@ public interface IGameView
     public void HideUIMessage();
     public void ShowFutureMenu();
     public void HideFutureMenu();
+    public void ShowLoadMenu();
+    public void HideLoadMenu();
     
 
 }
