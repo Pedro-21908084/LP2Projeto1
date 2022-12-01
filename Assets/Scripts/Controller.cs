@@ -8,7 +8,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private TerrainData[] terrainsAvailable;
     [SerializeField] private TestView view;
 
-    private Game game;
+    private GameData gameData;
 
     private Tile[][] map;
     private LoadSystem loadSystem;
@@ -16,24 +16,26 @@ public class Controller : MonoBehaviour
 
     void Awake()
     {
-        IDictionary<string, Resource> resourceDictionary = new Dictionary<string, Resource>();
+        IDictionary<string, ResourceData> resourceDictionary = new Dictionary<string, ResourceData>();
         foreach(ResourceData data in resourcesAvailable)
         {
-            resourceDictionary.Add(data.key, new Resource(data.key, data.coinModifier, data.foodModifier));
+            resourceDictionary.Add(data.key, data);
         }
 
-        IDictionary<string, Terrain> terrainDictionary = new Dictionary<string, Terrain>();
+        IDictionary<string, TerrainData> terrainDictionary = new Dictionary<string, TerrainData>();
         foreach(TerrainData data in terrainsAvailable)
         {
-            terrainDictionary.Add(data.key, new Terrain(data.key, data.coin, data.food));
+            terrainDictionary.Add(data.key, data);
         }
 
-        game = new Game(terrainDictionary, resourceDictionary);
+        gameData = new GameData(terrainDictionary, resourceDictionary);
 
         loadSystem = new LoadSystem();
-        loadSystem.SearchForMaps();
+        
 
         view.controller = this;
+
+        LoadMap();
     }
 
     private void Update()
@@ -41,11 +43,18 @@ public class Controller : MonoBehaviour
         
     }
 
-    public void LoadMap(int index)
+    private void LoadMap()
     {
-        map = loadSystem.LoadMapAt(index, game);
+        int? mapIndex = loadSystem.MapToLoad();
+        
+        if(mapIndex.HasValue)
+        {
+            map = loadSystem.LoadMapAt(mapIndex.Value, gameData);
 
-        view.ShowMap(map);
+            view.ShowMap(map);
+        }
+
+        
     }
 
     public void SelectTileAt(int rows, int cols)

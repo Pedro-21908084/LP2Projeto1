@@ -8,9 +8,28 @@ public class LoadSystem
     private const string MAP_TYPE = "*.map4x";
     private const string FOLDER_NAME = "map4xfiles";
     private const string COMMENT_SYMBOL = "#";
+    private const string MAP_TO_LOAD = "MapToLoad";
     
     public List<string> MapsFound{get; private set;}
     private string path;
+
+    public static void SaveMapName(string map)
+    {
+        PlayerPrefs.SetString(MAP_TO_LOAD, map);
+    }
+
+    public int? MapToLoad()
+    {
+        string mapToLoad = PlayerPrefs.GetString(MAP_TO_LOAD);
+
+        if(MapsFound.Contains(mapToLoad))
+        {
+            return MapsFound.FindIndex( 0, MapsFound.Count, x => x==mapToLoad);
+        }else
+        {
+            return null;
+        }
+    }
 
     public LoadSystem(string folder = FOLDER_NAME)
     {
@@ -19,6 +38,7 @@ public class LoadSystem
             folder);
 
         MapsFound = new List<string>();
+        SearchForMaps();
     }
 
     public void SearchForMaps()
@@ -45,7 +65,7 @@ public class LoadSystem
         }
     }
 
-    public Tile[][] LoadMapAt(int index, Game game)
+    public Tile[][] LoadMapAt(int index, GameData game)
     {
         Tile[][] map;
         
@@ -99,18 +119,23 @@ public class LoadSystem
                         if(noComments.Length > 0)
                         {
                             string[] commands = noComments.Trim().Split(" ");
-                            string[] resources = new string[commands.Length-1];
+
+                            TerrainData tData = game.GetTerrain(commands[0]);
+                            Terrain terrain = new Terrain(tData.key, tData.coin, tData.food);
+
+                            Resource[] resources = new Resource[commands.Length-1];
 
                             if(commands.Length > 1)
                             {
                                 for(int l = 1; l < commands.Length; l ++)
                                 {
-                                    resources[l-1] = commands[l];
+                                    ResourceData rData = game.GetResource(commands[l]);
+                                    
+                                    resources[l-1] = new Resource(rData.key, 
+                                        rData.coinModifier, rData.foodModifier);
                                 }
                             }
-                            map[i][j] = game.Tile(commands[0], resources);
-
-                            
+                            map[i][j] = new Tile(terrain, resources);
                         }
                     }
                 }
