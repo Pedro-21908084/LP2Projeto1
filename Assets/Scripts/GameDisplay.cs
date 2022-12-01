@@ -57,7 +57,7 @@ public class GameDisplay : MonoBehaviour, IGameView
         }
     }
 
-    public void ShowMap(Tile[][] map)
+    public void ShowMap(Tile[][] map, GameData gameData)
     {
         
         for (int i = 0; i < map.Length; i++)
@@ -96,7 +96,7 @@ public class GameDisplay : MonoBehaviour, IGameView
         Time.timeScale = 1;
     }
 
-    public void ShowTileInfo()
+    public void ShowTileInfo(Tile tile, GameData gameData)
     {
         TileInfoPanel.SetActive(true);
         HideButtons();
@@ -110,12 +110,12 @@ public class GameDisplay : MonoBehaviour, IGameView
         TileInfoPanel.SetActive(false);
     }
 
-    public void ShowTileResources()
+    public void ShowTileResources(Tile tile, GameData gameData)
     {
         
     }
 
-    public void ShowUIMessage()
+    public void ShowUIMessage(string message)
     {
         UiMessage.SetActive(true);
     }
