@@ -26,7 +26,7 @@ necessária para apresentar graficamente o jogo. Esta interface foi concretizada
 numa vista construída com o motor de jogo Unity. O controlador depende apenas
 de `IGameView`, de forma a aplicar o princípio SOLID de *dependency inversion*.
 
-O programa faz uso do **iterator pattern**, com a sintaxe **foreach** do C#
+O programa faz uso do **iterator pattern**, com a sintaxe `foreach` do C#
 e do **observer pattern**, a nível da GUI, com UnityEvents, para ligar o
 input do utilizador à ativação de funções do controlador de forma pouco estrita
 (*loose coupling*).
