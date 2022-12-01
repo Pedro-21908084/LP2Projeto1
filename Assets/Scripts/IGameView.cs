@@ -25,7 +25,7 @@ public interface IGameView
     List<Button> gameButtons { get; set; }
 
     //Methods
-    public void ShowMap(Tile[,] map);
+    public void ShowMap(Tile[][] map, float xPadding, float yPadding);
     public void ShowTileResources();
     public void ShowButtons();
     public void HideButtons();

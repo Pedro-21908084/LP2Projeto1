@@ -49,13 +49,14 @@ public class GameDisplay : MonoBehaviour, IGameView
         }
     }
 
-    public void ShowMap(Tile[,] map)
+    public void ShowMap(Tile[][] map, float xPadding, float yPadding)
     {
-        for (int i = 0; i < map.GetLength(0); i++)
+        Vector2 screenCorner = Camera.main.ScreenToViewportPoint(new Vector2(0, Camera.main.pixelHeight));
+        for (int i = 0; i < map.Length; i++)
         {
-            for (int j = 0; j < map.GetLength(1); j++)
+            for (int j = 0; j < map[i].Length; j++)
             {
-                //Show respective tiles
+                
             }
         }
     }
@@ -114,5 +115,16 @@ public class GameDisplay : MonoBehaviour, IGameView
     {
         UiMessage.SetActive(false);
     }
+
+    public void ZoomIn() 
+    {
+        Camera.main.orthographicSize++;
+    }
+
+    public void ZoomOut() 
+    {
+        Camera.main.orthographicSize--;
+    }
+
 
 }
