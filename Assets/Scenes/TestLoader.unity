@@ -1232,6 +1232,8 @@ MonoBehaviour:
   TileInfoPanel: {fileID: 1669257473}
   MapLegend: {fileID: 0}
   PauseMenu: {fileID: 0}
+  FutureMenu: {fileID: 0}
+  LoadMenu: {fileID: 0}
   BackgroundImage: {fileID: 0}
   TerrTypeTxt: {fileID: 1385552120}
   ResourcesTxt: {fileID: 1104301294}
@@ -1240,8 +1242,10 @@ MonoBehaviour:
   gameButtons: []
   UiMessage: {fileID: 0}
   instStart: {fileID: 436864682}
-  resourcePrefab: {fileID: 2633289916812723951, guid: 1af61a9dd07c70a41af1e3a5e93c587c, type: 3}
+  resourcePrefab: {fileID: 5891605388430062795, guid: 920a4056ab9816f43bd8d05cf36c4b87, type: 3}
   terrainPrefab: {fileID: 6437054317823781967, guid: 7fb765358684ee240bf9aadac1b9b77d, type: 3}
+  <XPadding>k__BackingField: 80
+  <YPadding>k__BackingField: 80
 --- !u!1 &625076449
 GameObject:
   m_ObjectHideFlags: 0
