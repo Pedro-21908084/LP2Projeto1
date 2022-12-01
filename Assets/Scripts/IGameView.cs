@@ -22,7 +22,6 @@ public interface IGameView
 
     
     //Button List
-    [SerializeField]
     List<Button> gameButtons { get; set; }
 
     //Methods

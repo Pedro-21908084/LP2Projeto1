@@ -17,35 +17,18 @@ public class GameDisplay : MonoBehaviour, IGameView
     public List<Button> gameButtons { get ; set ; }
     public GameObject UiMessage { get; set; }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public KeyCode GetPlayerInput()
     {
-
         if (Input.anyKeyDown) 
         {
             foreach (KeyCode kcode in System.Enum.GetValues(typeof(KeyCode)))
             {
                 if (Input.GetKey(kcode))
                 {
-                    
                     return kcode;
-
                 }
-
             }
         }
-
         return KeyCode.None;
     }
 
@@ -54,7 +37,6 @@ public class GameDisplay : MonoBehaviour, IGameView
         foreach (Button button in gameButtons)
         {
             button.gameObject.SetActive(true);
-            
         }
     }
 
@@ -81,6 +63,8 @@ public class GameDisplay : MonoBehaviour, IGameView
     public void ShowMapLegend()
     {
         MapLegend.SetActive(true);
+        HideTileInfo();
+        HideUIMessage();
     }
 
     public void HideMapLegend()
@@ -92,6 +76,10 @@ public class GameDisplay : MonoBehaviour, IGameView
     {
         PauseMenu.SetActive(true);
         Time.timeScale = 0;
+        HideButtons();
+        HideMapLegend();
+        HideTileInfo();
+        HideUIMessage();
     }
     public void HidePauseMenu()
     {
@@ -102,6 +90,10 @@ public class GameDisplay : MonoBehaviour, IGameView
     public void ShowTileInfo()
     {
         TileInfoPanel.SetActive(true);
+        HideButtons();
+        HideMapLegend();
+        HidePauseMenu();
+        HideUIMessage();
     }
 
     public void HideTileInfo()
@@ -122,12 +114,5 @@ public class GameDisplay : MonoBehaviour, IGameView
     {
         UiMessage.SetActive(false);
     }
-
-
-
-
-
-
-
 
 }
