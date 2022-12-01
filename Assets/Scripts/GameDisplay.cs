@@ -13,6 +13,8 @@ public class GameDisplay : MonoBehaviour, IGameView
     [SerializeField]
     private GameObject PauseMenu;
     [SerializeField]
+    private GameObject FutureMenu;
+    [SerializeField]
     private GameObject BackgroundImage;
     [SerializeField]
     private TextMeshProUGUI TerrTypeTxt;
@@ -141,7 +143,13 @@ public class GameDisplay : MonoBehaviour, IGameView
         UiMessage.SetActive(false);
     }
 
-    
+    public void ShowFutureMenu()
+    {
+        FutureMenu.SetActive(true);
+    }
 
-
+    public void HideFutureMenu()
+    {
+        FutureMenu.SetActive(false);
+    }
 }
