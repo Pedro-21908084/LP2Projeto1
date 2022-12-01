@@ -8,18 +8,19 @@ public class LoadSystem
     private const string MAP_TYPE = "*.map4x";
     private const string FOLDER_NAME = "map4xfiles";
     private const string COMMENT_SYMBOL = "#";
+    private const string MAP_TO_LOAD = "MapToLoad";
     
     public List<string> MapsFound{get; private set;}
     private string path;
 
     public static void SaveMapName(string map)
     {
-        PlayerPrefs.SetString("MapToLoad", map);
+        PlayerPrefs.SetString(MAP_TO_LOAD, map);
     }
 
     public int? MapToLoad()
     {
-        string mapToLoad = PlayerPrefs.GetString("MapToLoad");
+        string mapToLoad = PlayerPrefs.GetString(MAP_TO_LOAD);
 
         if(MapsFound.Contains(mapToLoad))
         {

@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MenusController : MonoBehaviour
 {
+    private const string SCENE_PATH = "Assets/Scenes/";
+    private const string SCENE_EXTENTION = ".unity";
+    
     private LoadSystem loadSystem;
     [SerializeField]
     private string GameScene;
@@ -16,10 +19,10 @@ public class MenusController : MonoBehaviour
     
     public void LoadScene(string sceneToLoad)
     {
-        Scene scene =  SceneManager.GetSceneByName(sceneToLoad);
+        int index = SceneUtility.GetBuildIndexByScenePath(SCENE_PATH + sceneToLoad + SCENE_EXTENTION);
 
-        if(scene != null)
-            SceneManager.LoadScene(scene.name);
+        if(index > 0)
+            SceneManager.LoadScene(sceneToLoad);
     }
 
     public void OpenLoadMenu()
