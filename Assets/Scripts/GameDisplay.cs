@@ -79,7 +79,8 @@ public class GameDisplay : MonoBehaviour, IGameView
             for (int j = 0; j < map[i].Length; j++)
             {
                 terrainPrefab.GetComponent<Image>().sprite = gameData.GetTerrain(map[i][j].Terrain.Type).sprite;
-                terrainsStored[i][j] = Instantiate(terrainPrefab, new Vector2(XPadding * j, YPadding * i), new Quaternion(), instStart);
+                terrainsStored[i][j] = Instantiate(terrainPrefab,instStart);
+                terrainsStored[i][j].GetComponent<RectTransform>().anchoredPosition = new Vector2(XPadding * j, -YPadding * i);
                 ShowTileResources(map[i][j], gameData,terrainsStored[i][j], terrResourcesStored[i][j]);
             }
         }
@@ -126,13 +127,13 @@ public class GameDisplay : MonoBehaviour, IGameView
         TileInfoPanel.SetActive(false);
     }
 
-    public void ShowTileResources(Tile tile, GameData gameData, GameObject gameObject, List<GameObject> resourceList)
+    public void ShowTileResources(Tile tile, GameData gameData, GameObject tileObject, List<GameObject> resourceList)
     {
         resourceList = new List<GameObject>();
         foreach (Resource resource in tile.Resources)
         {
             resourcePrefab.GetComponent<Image>().sprite = gameData.GetResource(resource.Type).sprite;
-            resourceList.Add(Instantiate(resourcePrefab, gameObject.GetComponent<TileController>().GetIconInstArea(), new Quaternion()));
+            resourceList.Add(Instantiate(resourcePrefab, tileObject.GetComponent<TileController>().GetIconInstArea(), new Quaternion(), tileObject.transform));
         }
     }
 
