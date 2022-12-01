@@ -30,6 +30,8 @@ public class GameDisplay : MonoBehaviour, IGameView
     [SerializeField]
     private GameObject instStart;
 
+    public float XPadding { get; set; }
+    public float YPadding { get; set; }
 
 
     public void ShowButtons()
@@ -49,7 +51,7 @@ public class GameDisplay : MonoBehaviour, IGameView
         }
     }
 
-    public void ShowMap(Tile[][] map, float xPadding, float yPadding)
+    public void ShowMap(Tile[][] map)
     {
         
         for (int i = 0; i < map.Length; i++)

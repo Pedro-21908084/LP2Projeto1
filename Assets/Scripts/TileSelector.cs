@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class TileSelector : MonoBehaviour
 {
-    [SerializeField]
-    private Controller controller;
+    public int Rows { get;set;}
+    public int Cols { get; set;}
 
-    public void TileSelect(int rows, int cols) 
+    public Controller controller { get; set;}
+
+    public void TileSelect() 
     {
-        controller.SelectTileAt(rows, cols);
+        controller.SelectTileAt(Rows, Cols);
     }
 }
