@@ -28,10 +28,16 @@ public class GameDisplay : MonoBehaviour, IGameView
     private GameObject UiMessage;
 
     [SerializeField]
-    private GameObject instStart;
+    private Transform instStart;
 
+    [SerializeField]
+    private GameObject resourcePrefab;
+
+    [SerializeField]
+    private GameObject terrainPrefab;
     public float XPadding { get; set; }
     public float YPadding { get; set; }
+
 
 
     public void ShowButtons()
@@ -58,7 +64,7 @@ public class GameDisplay : MonoBehaviour, IGameView
         {
             for (int j = 0; j < map[i].Length; j++)
             {
-                
+                Instantiate(terrainPrefab, new Vector2(instStart.position.x + XPadding * j, instStart.position.y + YPadding * i), new Quaternion());
             }
         }
     }
