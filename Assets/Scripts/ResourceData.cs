@@ -6,4 +6,5 @@ public class ResourceData : ScriptableObject
     public string key;
     public int coinModifier;
     public int foodModifier;
+    public Sprite sprite;
 }
