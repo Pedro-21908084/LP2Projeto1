@@ -6,7 +6,8 @@ public class Controller : MonoBehaviour
 {
     [SerializeField] private ResourceData[] resourcesAvailable;
     [SerializeField] private TerrainData[] terrainsAvailable;
-    [SerializeField] private TestView view;
+    [field: SerializeField] private Component viewObject;
+    private IGameView view;
 
     private GameData gameData;
 
@@ -31,9 +32,9 @@ public class Controller : MonoBehaviour
         gameData = new GameData(terrainDictionary, resourceDictionary);
 
         loadSystem = new LoadSystem();
-        
 
-        view.controller = this;
+        if(viewObject is IGameView)
+            view = viewObject as IGameView;
 
         LoadMap();
     }
@@ -51,7 +52,7 @@ public class Controller : MonoBehaviour
         {
             map = loadSystem.LoadMapAt(mapIndex.Value, gameData);
 
-            view.ShowMap(map);
+            view.ShowMap(map, gameData);
         }
 
         
@@ -61,7 +62,7 @@ public class Controller : MonoBehaviour
     {
         if(map != null)
         {
-            view.ShowTileInfo(map[rows][cols]);
+            view.ShowTileInfo(map[rows][cols], gameData);
         }
     }
 

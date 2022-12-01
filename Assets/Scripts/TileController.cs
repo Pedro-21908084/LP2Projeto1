@@ -7,8 +7,10 @@ public class TileController : MonoBehaviour
     public int Rows { get;set;}
     public int Cols { get; set;}
 
+    [field: SerializeField]
     public Transform AreaObject1 { get; set; }
 
+    [field: SerializeField]
     public Transform AreaObject2 { get; set; }
 
 
