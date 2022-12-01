@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class GameData
 {
     private IDictionary<string, TerrainData> terrains;
