@@ -27,6 +27,8 @@ public class GameDisplay : MonoBehaviour, IGameView
     [SerializeField]
     private TextMeshProUGUI TotalFoodTxt;
     [SerializeField]
+    private Image terrainIcon;
+    [SerializeField]
     private List<Button> gameButtons;
     [SerializeField]
     private GameObject UiMessage;
@@ -53,8 +55,20 @@ public class GameDisplay : MonoBehaviour, IGameView
 
     private GameData gameData;
 
-
-    
+    public void SetupDisplay(Controller controller, float xPadding, float yPadding, GameData gameData)
+    {
+        this.controller = controller;
+        this.gameData = gameData;
+        XPadding = xPadding;
+        YPadding = yPadding;
+        HideButtons();
+        HideFutureMenu();
+        HideLoadMenu();
+        HideMapLegend();
+        HideTileInfo();
+        HidePauseMenu();
+        HideUIMessage();
+    }
 
     public void ShowButtons()
     {
@@ -125,6 +139,14 @@ public class GameDisplay : MonoBehaviour, IGameView
     public void ShowTileInfo(Tile tile)
     {
         TileInfoPanel.SetActive(true);
+        terrainIcon.sprite = gameData.GetTerrain(tile.Terrain.Type).sprite;
+        TerrTypeTxt.text = tile.Terrain.Type;
+        foreach (Resource resource in tile.Resources)
+        {
+            ResourcesTxt.text += string.Format($"{resource.Type}\n");
+        }
+        TotalCoinTxt.text = tile.Coin.ToString();
+        TotalFoodTxt.text = tile.Food.ToString();
         HideButtons();
         HideMapLegend();
         HidePauseMenu();
@@ -175,18 +197,5 @@ public class GameDisplay : MonoBehaviour, IGameView
         LoadMenu.SetActive(false);
     }
 
-    public void SetupDisplay(Controller controller, float xPadding, float yPadding, GameData gameData)
-    {
-        this.controller = controller;
-        this.gameData = gameData;
-        XPadding = xPadding;
-        YPadding = yPadding;
-        HideButtons();
-        HideFutureMenu();
-        HideLoadMenu();
-        HideMapLegend();
-        HideTileInfo();
-        HidePauseMenu();
-        HideUIMessage();
-    }
+    
 }
