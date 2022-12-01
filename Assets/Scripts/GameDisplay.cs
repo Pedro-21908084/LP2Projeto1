@@ -35,8 +35,15 @@ public class GameDisplay : MonoBehaviour, IGameView
 
     [SerializeField]
     private GameObject terrainPrefab;
+
+    [field:SerializeField]
     public float XPadding { get; set; }
+    [field: SerializeField]
     public float YPadding { get; set; }
+
+    private GameObject[][] terrainsStored;
+
+    private List<GameObject>[][] terrResourcesStored;
 
 
 
@@ -59,12 +66,17 @@ public class GameDisplay : MonoBehaviour, IGameView
 
     public void ShowMap(Tile[][] map, GameData gameData)
     {
-        
+        terrainsStored = new GameObject[map.Length][];
+        terrResourcesStored = new List<GameObject>[map.Length][];
         for (int i = 0; i < map.Length; i++)
         {
+            terrainsStored[i] = new GameObject[map[i].Length];
+            terrResourcesStored[i] = new List<GameObject>[map[i].Length];
             for (int j = 0; j < map[i].Length; j++)
             {
-                Instantiate(terrainPrefab, new Vector2(instStart.position.x + XPadding * j, instStart.position.y + YPadding * i), new Quaternion());
+                terrainPrefab.GetComponent<Image>().sprite = gameData.GetTerrain(map[i][j].Terrain.Type).sprite;
+                terrainsStored[i][j] = Instantiate(terrainPrefab, new Vector2(XPadding * j, YPadding * i), new Quaternion(), instStart);
+                ShowTileResources(map[i][j], gameData,terrainsStored[i][j], terrResourcesStored[i][j]);
             }
         }
     }
@@ -110,9 +122,14 @@ public class GameDisplay : MonoBehaviour, IGameView
         TileInfoPanel.SetActive(false);
     }
 
-    public void ShowTileResources(Tile tile, GameData gameData)
+    public void ShowTileResources(Tile tile, GameData gameData, GameObject gameObject, List<GameObject> resourceList)
     {
-        
+        resourceList = new List<GameObject>();
+        foreach (Resource resource in tile.Resources)
+        {
+            resourcePrefab.GetComponent<Image>().sprite = gameData.GetResource(resource.Type).sprite;
+            resourceList.Add(Instantiate(resourcePrefab, gameObject.GetComponent<TileController>().GetIconInstArea(), new Quaternion()));
+        }
     }
 
     public void ShowUIMessage(string message)
