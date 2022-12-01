@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public interface IGameView 
+public interface IGameView
 {
     //Methods
     public void ShowMap(Tile[][] map, GameData gameData);
