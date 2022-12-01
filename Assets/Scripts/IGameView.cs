@@ -8,7 +8,7 @@ public interface IGameView
 {
     //Methods
     public void ShowMap(Tile[][] map, GameData gameData);
-    public void ShowTileResources(Tile tile, GameData gameData, GameObject gameObject);
+    public void ShowTileResources(Tile tile, GameData gameData, GameObject gameObject, List<GameObject> resourceList);
     public void ShowButtons();
     public void HideButtons();
     public void ShowTileInfo(Tile tile, GameData gameData);
