@@ -6,31 +6,26 @@ using UnityEngine.UI;
 
 public class GameDisplay : MonoBehaviour, IGameView
 {
-    public GameObject TileInfoPanel { get ; set ; }
-    public GameObject MapLegend { get ; set ; }
-    public GameObject PauseMenu { get ; set ; }
-    public GameObject BackgroundImage { get; set ; }
-    public TextMeshProUGUI TerrTypeTxt { get ; set ; }
-    public TextMeshProUGUI ResourcesTxt { get ; set ; }
-    public TextMeshProUGUI TotalCoinTxt { get ; set ; }
-    public TextMeshProUGUI TotalFoodTxt { get ; set; }
-    public List<Button> gameButtons { get ; set ; }
-    public GameObject UiMessage { get; set; }
-
-    public KeyCode GetPlayerInput()
-    {
-        if (Input.anyKeyDown) 
-        {
-            foreach (KeyCode kcode in System.Enum.GetValues(typeof(KeyCode)))
-            {
-                if (Input.GetKey(kcode))
-                {
-                    return kcode;
-                }
-            }
-        }
-        return KeyCode.None;
-    }
+    [SerializeField]
+    private GameObject TileInfoPanel;
+    [SerializeField]
+    private GameObject MapLegend;
+    [SerializeField]
+    private GameObject PauseMenu;
+    [SerializeField]
+    private GameObject BackgroundImage;
+    [SerializeField]
+    private TextMeshProUGUI TerrTypeTxt;
+    [SerializeField]
+    private TextMeshProUGUI ResourcesTxt;
+    [SerializeField]
+    private TextMeshProUGUI TotalCoinTxt;
+    [SerializeField]
+    private TextMeshProUGUI TotalFoodTxt;
+    [SerializeField]
+    private List<Button> gameButtons;
+    [SerializeField]
+    private GameObject UiMessage;
 
     public void ShowButtons()
     {

@@ -6,24 +6,6 @@ using TMPro;
 
 public interface IGameView 
 {
-    //GameObjects
-    public GameObject TileInfoPanel { get; set;}
-    public GameObject MapLegend { get; set;}
-    public GameObject PauseMenu { get; set; }
-    public GameObject BackgroundImage { get; set; }
-
-    public GameObject UiMessage { get; set; }
-
-    //Info Panel Texts
-    public TextMeshProUGUI TerrTypeTxt { get; set; }
-    public TextMeshProUGUI ResourcesTxt { get; set; }
-    public TextMeshProUGUI TotalCoinTxt { get; set; }
-    public TextMeshProUGUI TotalFoodTxt { get; set; }
-
-    
-    //Button List
-    List<Button> gameButtons { get; set; }
-
     //Methods
     public void ShowMap(Tile[][] map, float xPadding, float yPadding);
     public void ShowTileResources();
@@ -37,6 +19,6 @@ public interface IGameView
     public void HidePauseMenu();
     public void ShowUIMessage();
     public void HideUIMessage();
-    public KeyCode GetPlayerInput();
+    
 
 }
