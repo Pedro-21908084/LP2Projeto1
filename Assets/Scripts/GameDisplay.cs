@@ -38,6 +38,10 @@ public class GameDisplay : MonoBehaviour, IGameView
     public float XPadding { get; set; }
     public float YPadding { get; set; }
 
+    private GameObject[][] terrainsStored;
+
+    private List<Resource>[][] terrResourcesStored;
+
 
 
     public void ShowButtons()
@@ -110,9 +114,12 @@ public class GameDisplay : MonoBehaviour, IGameView
         TileInfoPanel.SetActive(false);
     }
 
-    public void ShowTileResources(Tile tile, GameData gameData)
+    public void ShowTileResources(Tile tile, GameData gameData, GameObject gameObject)
     {
-        
+        foreach (Resource resource in tile.Resources)
+        {
+            Instantiate(resourcePrefab, gameObject.GetComponent<TileController>().GetIconInstArea(), new Quaternion());
+        }
     }
 
     public void ShowUIMessage(string message)

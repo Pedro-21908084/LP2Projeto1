@@ -11,7 +11,7 @@ public interface IGameView
     public void ShowTileResources(Tile tile, GameData gameData);
     public void ShowButtons();
     public void HideButtons();
-    public void ShowTileInfo(Tile tile, GameData gameData);
+    public void ShowTileInfo(Tile tile, GameData gameData, GameObject gameObject);
     public void HideTileInfo();
     public void ShowMapLegend();
     public void HideMapLegend();
