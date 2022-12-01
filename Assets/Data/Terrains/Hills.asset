@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Hills
   m_EditorClassIdentifier: 
   key: hills
-  displayName: Hills
   coin: 1
   food: 1

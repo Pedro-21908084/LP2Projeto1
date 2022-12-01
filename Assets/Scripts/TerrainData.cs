@@ -6,4 +6,5 @@ public class TerrainData : ScriptableObject
     public string key;
     public int coin;
     public int food;
+    public Sprite sprite;
 }
