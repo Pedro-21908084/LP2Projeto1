@@ -49,7 +49,12 @@ public class GameDisplay : MonoBehaviour, IGameView
 
     private List<GameObject>[][] terrResourcesStored;
 
+    private Controller controller;
 
+    private GameData gameData;
+
+
+    
 
     public void ShowButtons()
     {
@@ -68,7 +73,7 @@ public class GameDisplay : MonoBehaviour, IGameView
         }
     }
 
-    public void ShowMap(Tile[][] map, GameData gameData)
+    public void ShowMap(Tile[][] map)
     {
         terrainsStored = new GameObject[map.Length][];
         terrResourcesStored = new List<GameObject>[map.Length][];
@@ -81,7 +86,11 @@ public class GameDisplay : MonoBehaviour, IGameView
                 terrainPrefab.GetComponent<Image>().sprite = gameData.GetTerrain(map[i][j].Terrain.Type).sprite;
                 terrainsStored[i][j] = Instantiate(terrainPrefab,instStart);
                 terrainsStored[i][j].GetComponent<RectTransform>().anchoredPosition = new Vector2(XPadding * j, -YPadding * i);
-                ShowTileResources(map[i][j], gameData,terrainsStored[i][j], terrResourcesStored[i][j]);
+                TileController tileController = terrainsStored[i][j].GetComponent<TileController>();
+                tileController.controller = controller;
+                tileController.Rows = i;
+                tileController.Cols = j;
+                ShowTileResources(map[i][j],terrainsStored[i][j], terrResourcesStored[i][j]);
             }
         }
     }
@@ -113,7 +122,7 @@ public class GameDisplay : MonoBehaviour, IGameView
         Time.timeScale = 1;
     }
 
-    public void ShowTileInfo(Tile tile, GameData gameData)
+    public void ShowTileInfo(Tile tile)
     {
         TileInfoPanel.SetActive(true);
         HideButtons();
@@ -127,7 +136,7 @@ public class GameDisplay : MonoBehaviour, IGameView
         TileInfoPanel.SetActive(false);
     }
 
-    public void ShowTileResources(Tile tile, GameData gameData, GameObject tileObject, List<GameObject> resourceList)
+    public void ShowTileResources(Tile tile, GameObject tileObject, List<GameObject> resourceList)
     {
         resourceList = new List<GameObject>();
         foreach (Resource resource in tile.Resources)
@@ -164,5 +173,20 @@ public class GameDisplay : MonoBehaviour, IGameView
     public void HideLoadMenu()
     {
         LoadMenu.SetActive(false);
+    }
+
+    public void SetupDisplay(Controller controller, float xPadding, float yPadding, GameData gameData)
+    {
+        this.controller = controller;
+        this.gameData = gameData;
+        XPadding = xPadding;
+        YPadding = yPadding;
+        HideButtons();
+        HideFutureMenu();
+        HideLoadMenu();
+        HideMapLegend();
+        HideTileInfo();
+        HidePauseMenu();
+        HideUIMessage();
     }
 }

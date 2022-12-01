@@ -7,11 +7,12 @@ using TMPro;
 public interface IGameView 
 {
     //Methods
-    public void ShowMap(Tile[][] map, GameData gameData);
-    public void ShowTileResources(Tile tile, GameData gameData, GameObject gameObject, List<GameObject> resourceList);
+    public void SetupDisplay(Controller controller, float xPadding, float yPadding, GameData gameData);
+    public void ShowMap(Tile[][] map);
+    public void ShowTileResources(Tile tile, GameObject gameObject, List<GameObject> resourceList);
     public void ShowButtons();
     public void HideButtons();
-    public void ShowTileInfo(Tile tile, GameData gameData);
+    public void ShowTileInfo(Tile tile);
     public void HideTileInfo();
     public void ShowMapLegend();
     public void HideMapLegend();
