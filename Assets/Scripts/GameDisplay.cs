@@ -132,7 +132,7 @@ public class GameDisplay : MonoBehaviour, IGameView
     }
     public void HidePauseMenu()
     {
-        PauseMenu.SetActive(true);
+        PauseMenu.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -141,6 +141,7 @@ public class GameDisplay : MonoBehaviour, IGameView
         TileInfoPanel.SetActive(true);
         terrainIcon.sprite = gameData.GetTerrain(tile.Terrain.Type).sprite;
         TerrTypeTxt.text = tile.Terrain.Type;
+        ResourcesTxt.text = "";
         foreach (Resource resource in tile.Resources)
         {
             ResourcesTxt.text += string.Format($"{resource.Type}\n");
