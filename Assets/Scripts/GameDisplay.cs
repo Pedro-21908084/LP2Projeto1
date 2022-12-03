@@ -56,6 +56,10 @@ public class GameDisplay : MonoBehaviour, IGameView
     private GameObject[][] terrainsStored;
     private List<GameObject>[][] terrResourcesStored;
 
+    //Resource Icon Instatiation
+    [SerializeField]
+    private float detectionRadius;
+
     
 
     public void SetupDisplay(Controller controller, float xPadding, float yPadding, GameData gameData)
@@ -213,6 +217,12 @@ public class GameDisplay : MonoBehaviour, IGameView
         foreach (Resource resource in tile.Resources)
         {
             resourcePrefab.GetComponent<Image>().sprite = gameData.GetResource(resource.Type).sprite;
+            Vector2 resourceIconPos;
+            do
+            {
+                resourceIconPos = terrainPrefab.GetComponent<TileController>().GetIconInstArea();
+            } while (Physics2D.OverlapCircle(resourceIconPos, detectionRadius) != null);
+            
             resourceList.Add(Instantiate(resourcePrefab, terrainPrefab.GetComponent<TileController>().GetIconInstArea(), new Quaternion(), terrainPrefab.transform));
         }
     }
