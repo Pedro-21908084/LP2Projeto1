@@ -99,6 +99,13 @@ public class MenusController : MonoBehaviour
         displayLoadMapNames.CreateButton(loadSystem.MapsName.ToArray());
     }
 
+    public void ResetMapList()
+    {
+        loadSystem.SearchForMaps();
+        displayLoadMapNames.ResetButtonList();
+        displayLoadMapNames.CreateButton(loadSystem.MapsName.ToArray());
+    }
+
     public void CloseLoadMenu()
     {
         displayLoadMapNames.ResetButtonList();
