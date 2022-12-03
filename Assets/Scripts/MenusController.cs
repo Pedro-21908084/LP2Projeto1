@@ -194,7 +194,7 @@ public class MenusController : MonoBehaviour
     {
         int index = SceneUtility.GetBuildIndexByScenePath(SCENE_PATH + sceneToLoad + SCENE_EXTENTION);
 
-        if(index > 0)
+        if(index >= 0)
             SceneManager.LoadScene(sceneToLoad);
     }
 
