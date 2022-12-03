@@ -27,6 +27,8 @@ public class GameDisplay : MonoBehaviour, IGameView
     [SerializeField]
     private TextMeshProUGUI TotalFoodTxt;
     [SerializeField]
+    private TextMeshProUGUI uiMessageText;
+    [SerializeField]
     private Image terrainIcon;
     [SerializeField]
     private List<Button> gameButtons;
@@ -114,6 +116,11 @@ public class GameDisplay : MonoBehaviour, IGameView
         MapLegend.SetActive(true);
         HideTileInfo();
         HideUIMessage();
+        HideButtons();
+        HideFutureMenu();
+        HideLoadMenu();
+        HideTileInfo();
+        HidePauseMenu();
     }
 
     public void HideMapLegend()
@@ -128,6 +135,9 @@ public class GameDisplay : MonoBehaviour, IGameView
         HideButtons();
         HideMapLegend();
         HideTileInfo();
+        HideFutureMenu();
+        HideLoadMenu();
+        HideUIMessage();
         HideUIMessage();
     }
     public void HidePauseMenu()
@@ -151,6 +161,9 @@ public class GameDisplay : MonoBehaviour, IGameView
         HideMapLegend();
         HidePauseMenu();
         HideUIMessage();
+        HideLoadMenu();
+        HidePauseMenu();
+        HideFutureMenu();
     }
 
     public void HideTileInfo()
@@ -171,6 +184,13 @@ public class GameDisplay : MonoBehaviour, IGameView
     public void ShowUIMessage(string message)
     {
         UiMessage.SetActive(true);
+        uiMessageText.text = message;
+        HideButtons();
+        HideFutureMenu();
+        HideLoadMenu();
+        HideMapLegend();
+        HidePauseMenu();
+        HideTileInfo();
     }
     public void HideUIMessage()
     {
@@ -180,6 +200,12 @@ public class GameDisplay : MonoBehaviour, IGameView
     public void ShowFutureMenu()
     {
         FutureMenu.SetActive(true);
+        HideButtons();
+        HideLoadMenu();
+        HideMapLegend();
+        HidePauseMenu();
+        HideTileInfo();
+        HideUIMessage();
     }
 
     public void HideFutureMenu()
@@ -190,6 +216,12 @@ public class GameDisplay : MonoBehaviour, IGameView
     public void ShowLoadMenu()
     {
         LoadMenu.SetActive(true);
+        HideButtons();
+        HideFutureMenu();
+        HideMapLegend();
+        HidePauseMenu();
+        HideTileInfo();
+        HideUIMessage();
     }
 
     public void HideLoadMenu()
