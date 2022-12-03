@@ -16,20 +16,24 @@ Componente de mapa com distribuição de terrenos e recursos para um hipotético
 
 | Terreno | Legenda |
 | --- | --- |
-| [Deserto](images/terrain-desert.png) | Deserto |
-| [Planície](images/terrain-plains.png) | Planície |
-| [Montes](images/terrain-hills.png) | Montes |
-| [Montanhas](images/terrain-mountain.png) | Montanhas |
-| [Lago](images/terrain-water.png) | Lago |
+| <img src="images/terrain-desert.png" alt="Deserto" width="60" /> | Deserto |
+| <img src="images/terrain-plains.png" alt="Planície" width="60" /> | Planície |
+| <img src="images/terrain-hills.png" alt="Montes" width="60" /> | Montes |
+| <img src="images/terrain-mountain.png" alt="Montanhas" width="60" /> | Montanhas |
+| <img src="images/terrain-water.png" alt="Lago" width="60" /> | Lago |
 
 | Recurso | Legenda |
 | --- | --- |
-| [Plantas](images/resource-plants.png) | Plantas |
-| [Animais](images/resource-animals.png) | Animais |
-| [Metais](images/resource-metals.png) | Metais |
-| [Combustível fóssil](images/resource-fossil-fuel.png) | Combustível fóssil |
-| [Luxo](images/resource-luxury.png) | Luxo |
-| [Pollution](images/resource-pollution.png) | Pollution |
+| <img src="images/resource-plants.png" alt="Animais" width="60" /> | Plantas |
+| <img src="images/resource-animals.png" alt="Metais" width="60" /> | Animais |
+| <img src="images/resource-metals.png" alt="Combustível fóssil" width="60" /> | Metais |
+| <img src="images/resource-fossil-fuel.png" alt="Luxo" width="60" /> | Combustível fóssil |
+| <img src="images/resource-luxury.png" alt="Pollution" width="60" /> | Luxo |
+| <img src="images/resource-pollution.png" alt="Plantas" width="60" /> | Pollution |
+
+Ícones dos recursos retirados do pacote
+[2D ITEMS SET - HANDPAINTED](https://assetstore.unity.com/packages/2d/gui/icons/2d-items-set-handpainted-210729)
+de [Homeless](https://assetstore.unity.com/publishers/59942)
 
 ## Arquitetura do programa
 
