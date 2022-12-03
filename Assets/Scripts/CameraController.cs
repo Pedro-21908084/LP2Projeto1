@@ -10,6 +10,9 @@ public class CameraController : MonoBehaviour
     [field: SerializeField]
     public float maxZoomOut { get; set; }
 
+    /// <summary>
+    /// Increases main camera´s ortographic size
+    /// </summary>
     public void ZoomIn()
     {
         if (Camera.main.orthographicSize > maxZoomIn) 
@@ -23,6 +26,9 @@ public class CameraController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Increases main camera´s ortographic size
+    /// </summary>
     public void ZoomOut()
     {
         

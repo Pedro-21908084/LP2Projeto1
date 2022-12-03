@@ -16,11 +16,18 @@ public class TileController : MonoBehaviour
 
     public Controller controller { get; set;}
 
+    /// <summary>
+    /// Selects a tile in a certain row and column
+    /// </summary>
     public void TileSelect() 
     {
         controller.SelectTileAt(Rows, Cols);
     }
 
+    /// <summary>
+    /// Using AreaObject 1 and 2 estipulates limits and returns a random valued Vector2 within of those limits
+    /// </summary>
+    /// <returns></returns>
     public Vector2 GetIconInstArea() 
     {
         float xLeft = AreaObject1.position.x;
