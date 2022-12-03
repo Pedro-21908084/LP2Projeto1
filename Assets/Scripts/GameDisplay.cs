@@ -38,6 +38,10 @@ public class GameDisplay : MonoBehaviour, IGameView
     [SerializeField]
     private Image terrainIcon;
 
+    //For The Future Text
+    [SerializeField]
+    private TextMeshProUGUI forTheFutureText;
+
     //Buttons
     [SerializeField]
     private List<Button> gameButtons;
@@ -254,9 +258,10 @@ public class GameDisplay : MonoBehaviour, IGameView
     /// <summary>
     /// Displays Future Menu GameObject
     /// </summary>
-    public void ShowFutureMenu()
+    public void ShowFutureMenu(string text)
     {
         FutureMenu.SetActive(true);
+        forTheFutureText.text = text;
         HideButtons();
         HideLoadMenu();
         HideMapLegend();

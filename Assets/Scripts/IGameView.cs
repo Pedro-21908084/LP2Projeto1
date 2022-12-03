@@ -20,7 +20,7 @@ public interface IGameView
     public void HidePauseMenu();
     public void ShowUIMessage(string message);
     public void HideUIMessage();
-    public void ShowFutureMenu();
+    public void ShowFutureMenu(string text);
     public void HideFutureMenu();
     public void ShowLoadMenu();
     public void HideLoadMenu();
