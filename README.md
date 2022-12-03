@@ -7,9 +7,9 @@ Componente de mapa com distribuição de terrenos e recursos para um hipotético
 - João Inácio (22202654)
   - Arquitetura do modelo de dados
   - Diagrama UML simples
-- Pedro Fernandes (TODO: student number)
+- Pedro Fernandes (21908084)
   - Arquitetura e implementação do controller
-- Pedro Osório (TODO: student number)
+- Pedro Osório (22002513)
   - Arquitetura e implementação da vista
   
 ## Legenda dos elementos de jogo
