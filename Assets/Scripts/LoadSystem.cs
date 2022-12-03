@@ -11,6 +11,7 @@ public class LoadSystem
     private const string MAP_TO_LOAD = "MapToLoad";
     
     public List<string> MapsFound{get; private set;}
+    public List<string> MapsName{get; private set;}
     private string path;
 
     public static void SaveMapName(string map)
@@ -38,6 +39,7 @@ public class LoadSystem
             folder);
 
         MapsFound = new List<string>();
+        MapsName = new List<string>();
         SearchForMaps();
     }
 
@@ -53,9 +55,12 @@ public class LoadSystem
             }else
             {
                 MapsFound.Clear();
+                MapsName.Clear();
                 foreach(string file in files)
                 {
                     MapsFound.Add(file);
+                    string fileName = Path.GetFileNameWithoutExtension(file);
+                    MapsName.Add(fileName.Split(".")[0]);
                 }
             }
             

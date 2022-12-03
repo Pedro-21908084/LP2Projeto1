@@ -9,6 +9,7 @@ public class GameDisplay : MonoBehaviour, IGameView
     //References
     private Controller controller;
     private GameData gameData;
+    private MenusController menusController;
 
     //Menu GameObjects
     [SerializeField]
@@ -66,10 +67,11 @@ public class GameDisplay : MonoBehaviour, IGameView
 
     
 
-    public void SetupDisplay(Controller controller, float xPadding, float yPadding, GameData gameData)
+    public void SetupDisplay(Controller controller, float xPadding, float yPadding, GameData gameData, MenusController menusController)
     {
         this.controller = controller;
         this.gameData = gameData;
+        this.menusController = menusController;
         XPadding = xPadding;
         YPadding = yPadding;
         HideButtons();
@@ -90,6 +92,13 @@ public class GameDisplay : MonoBehaviour, IGameView
         {
             button.gameObject.SetActive(true);
         }
+        HideTileInfo();
+        HideUIMessage();
+        HideMapLegend();
+        HideFutureMenu();
+        HideLoadMenu();
+        HideTileInfo();
+        HidePauseMenu();
     }
     /// <summary>
     /// Deactivates all butons in a button List
@@ -121,7 +130,7 @@ public class GameDisplay : MonoBehaviour, IGameView
                 terrainsStored[i][j] = Instantiate(terrainPrefab,instStart);
                 terrainsStored[i][j].GetComponent<RectTransform>().anchoredPosition = new Vector2(XPadding * j, -YPadding * i);
                 TileController tileController = terrainsStored[i][j].GetComponent<TileController>();
-                tileController.controller = controller;
+                tileController.controller = menusController;
                 tileController.Rows = i;
                 tileController.Cols = j;
                 ShowTileResources(map[i][j],terrainsStored[i][j], terrResourcesStored[i][j]);

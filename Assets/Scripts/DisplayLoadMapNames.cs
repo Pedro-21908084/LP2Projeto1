@@ -20,6 +20,7 @@ public class DisplayLoadMapNames : MonoBehaviour
     public void SetMenusController(MenusController menusController) 
     {
         this.menusController = menusController;
+        loadMapButtons = new List<GameObject>();
     }
 
     /// <summary>
@@ -41,11 +42,11 @@ public class DisplayLoadMapNames : MonoBehaviour
     /// </summary>
     public void ResetButtonList() 
     {
-        while (loadMapButtons.Count > 0)
+        foreach(GameObject button in loadMapButtons)
         {
-            GameObject button = loadMapButtons[0];
-            loadMapButtons.RemoveAt(0);
             Destroy(button);
         }
+
+        loadMapButtons.Clear();
     }
 }

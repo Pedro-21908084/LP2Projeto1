@@ -10,12 +10,12 @@ public class Controller : MonoBehaviour
     [field: SerializeField] public float XPadding{get; private set;}
     [field: SerializeField] public float YPadding{get; private set;}
     public Vector2 mapSize{get; private set;}
-    private IGameView view;
+    public IGameView View{get; private set;}
 
     private GameData gameData;
 
-    private Tile[][] map;
-    private LoadSystem loadSystem;
+    public Tile[][] Map{get;private set;}
+    public LoadSystem LoadSystem{get; private set;}
     
 
     void Awake()
@@ -34,12 +34,12 @@ public class Controller : MonoBehaviour
 
         gameData = new GameData(terrainDictionary, resourceDictionary);
 
-        loadSystem = new LoadSystem();
+        LoadSystem = new LoadSystem();
 
         if(viewObject is IGameView)
         {
-            view = viewObject as IGameView;
-            view.SetupDisplay(this, XPadding, YPadding, gameData);
+            View = viewObject as IGameView;
+            View.SetupDisplay(this, XPadding, YPadding, gameData, GetComponent<MenusController>());
         }
             
 
@@ -53,25 +53,16 @@ public class Controller : MonoBehaviour
 
     private void LoadMap()
     {
-        int? mapIndex = loadSystem.MapToLoad();
+        int? mapIndex = LoadSystem.MapToLoad();
         
         if(mapIndex.HasValue)
         {
-            map = loadSystem.LoadMapAt(mapIndex.Value, gameData);
-            mapSize =  new Vector2(map[0].Length, map.Length);
+            Map = LoadSystem.LoadMapAt(mapIndex.Value, gameData);
+            mapSize =  new Vector2(Map[0].Length, Map.Length);
 
-            view.ShowMap(map);
+            View.ShowMap(Map);
         }
 
         
     }
-
-    public void SelectTileAt(int rows, int cols)
-    {
-        if(map != null)
-        {
-            view.ShowTileInfo(map[rows][cols]);
-        }
-    }
-
 }

@@ -7,7 +7,7 @@ using TMPro;
 public interface IGameView
 {
     //Methods
-    public void SetupDisplay(Controller controller, float xPadding, float yPadding, GameData gameData);
+    public void SetupDisplay(Controller controller, float xPadding, float yPadding, GameData gameData, MenusController menusController);
     public void ShowMap(Tile[][] map);
     public void ShowTileResources(Tile tile, GameObject terrainPrefab, List<GameObject> resourceList);
     public void ShowButtons();
