@@ -39,7 +39,7 @@ public class TestView : MonoBehaviour
 
         if(int.TryParse(rows.text, out rowsInt) && int.TryParse(cols.text, out colsInt))
         {
-            controller.SelectTileAt(rowsInt, colsInt);
+            //controller.SelectTileAt(rowsInt, colsInt);
         }
     }
 

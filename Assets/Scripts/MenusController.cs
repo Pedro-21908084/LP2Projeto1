@@ -13,6 +13,11 @@ public class MenusController : MonoBehaviour
     private LoadSystem loadSystem;
     [SerializeField] private string GameScene;
     private bool gameOnPause;
+    private bool inMenu;
+    private bool inMapLeg;
+    private bool inButton;
+    private bool inFuture;
+    private bool inTileInfo;
     private CameraController cameraController;
     [SerializeField] private Component viewComponent;
     [SerializeField] private DisplayLoadMapNames displayLoadMapNames;
@@ -44,7 +49,11 @@ public class MenusController : MonoBehaviour
             view = controller.View;
             loadSystem = controller.LoadSystem;
         }
-            
+        inMenu = false;
+        inButton = false;
+        inFuture = false;
+        inMapLeg = false;
+        inTileInfo = false;
         displayLoadMapNames.SetMenusController(this);
     }
 
@@ -73,23 +82,110 @@ public class MenusController : MonoBehaviour
                     cameraController.CameraMoveHorizontal(-Input.GetAxis("Mouse X"));
                     cameraController.CameraMoveVertically(-Input.GetAxis("Mouse Y"));
                 }
+
+                if(Input.GetButtonDown("MapLegend") && !inMapLeg)
+                    OpenMapLegen();
+                else if(Input.GetButtonDown("MapLegend"))
+                    CloseMapLegen();
+
+                if(Input.GetButtonDown("FutereButtons") && !inButton)
+                {
+                    OpenButtons();
+                    Debug.Log("buttons");
+                }
+                    
+                else if(Input.GetButtonDown("FutereButtons"))
+                    CloseButtons();
             }
 
             
         }
     }
 
-    private void PauseToogle()
+    public void OpenMapLegen()
+    {
+        view.ShowMapLegend();
+        inMenu = true;
+        inMapLeg = true;
+        inButton = false;
+        inFuture = false;
+        inTileInfo = false;
+    }
+    public void OpenFutureMenu()
+    {
+        view.ShowFutureMenu();
+        inFuture = true;
+        inMenu = true;
+        inButton = false;
+        inMapLeg=false;
+        inTileInfo = false;
+    }
+    public void OpenButtons()
+    {
+        view.ShowButtons();
+        inButton = true;
+        inMenu = true;
+        inMapLeg=false;
+        inFuture = false;
+        inTileInfo = false;
+    }
+    public void CloseMapLegen()
+    {
+        view.HideMapLegend();
+        inMenu = false;
+        inMapLeg=false;
+    }
+    public void CloseFutureMenu()
+    {
+        view.HideFutureMenu();
+        inFuture = false;
+        inMenu = false;
+    }
+    public void CloseButtons()
+    {
+        view.HideButtons();
+        inButton = false;
+        inMenu = false;
+    }
+
+    public void SelectTileAt(int rows, int cols)
+    {
+        if(controller.Map != null && !gameOnPause)
+        {
+            view.ShowTileInfo(controller.Map[rows][cols]);
+            inTileInfo = true;
+            inButton = false;
+            inMenu = true;
+            inMapLeg=false;
+            inFuture = false;
+        }
+    }
+
+    public void PauseToogle()
     {
         
         if(gameOnPause)
         {
-            view.HideButtons();
+            view.HidePauseMenu();
             gameOnPause = false;
         }else
         {
-            view.ShowPauseMenu();
-            gameOnPause = true;
+            
+            if(!inMenu)
+            {
+                view.ShowPauseMenu();
+                gameOnPause = true;
+            }else
+            {
+                view.ShowMapLegend();
+                view.HideMapLegend();
+                inMenu = false;
+                inButton = false;
+                inMapLeg=false;
+                inTileInfo = false;
+                inFuture = false;
+            }
+            
         }
         
     }

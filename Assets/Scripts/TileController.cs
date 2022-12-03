@@ -14,7 +14,7 @@ public class TileController : MonoBehaviour
     public Transform AreaObject2 { get; set; }
 
 
-    public Controller controller { get; set;}
+    public MenusController controller { get; set;}
 
     /// <summary>
     /// Selects a tile in a certain row and column

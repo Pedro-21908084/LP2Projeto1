@@ -39,7 +39,7 @@ public class Controller : MonoBehaviour
         if(viewObject is IGameView)
         {
             View = viewObject as IGameView;
-            View.SetupDisplay(this, XPadding, YPadding, gameData);
+            View.SetupDisplay(this, XPadding, YPadding, gameData, GetComponent<MenusController>());
         }
             
 
@@ -65,13 +65,4 @@ public class Controller : MonoBehaviour
 
         
     }
-
-    public void SelectTileAt(int rows, int cols)
-    {
-        if(Map != null)
-        {
-            View.ShowTileInfo(Map[rows][cols]);
-        }
-    }
-
 }
