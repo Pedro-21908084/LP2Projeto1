@@ -7,6 +7,9 @@ public class Tile
     public Terrain Terrain { get; }
     public ICollection<Resource> Resources { get => resources; }
 
+    /// <summary>
+    /// Total coin production from terrain and resources.
+    /// <summary>
     public int Coin
     {
         get
@@ -24,6 +27,9 @@ public class Tile
         }
     }
     
+    /// <summary>
+    /// Total food production from terrain and resources.
+    /// </summary>
     public int Food
     {
         get
