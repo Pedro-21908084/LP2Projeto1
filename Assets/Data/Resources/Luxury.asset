@@ -15,4 +15,4 @@ MonoBehaviour:
   key: luxury
   coinModifier: 4
   foodModifier: -1
-  sprite: {fileID: 21300000, guid: 8e88614a5d2aead4998a8c70955662c6, type: 3}
+  sprite: {fileID: 21300000, guid: 96df5282e804a6f488e4b55e33dbbef2, type: 3}
