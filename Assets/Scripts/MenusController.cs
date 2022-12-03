@@ -111,9 +111,9 @@ public class MenusController : MonoBehaviour
         inFuture = false;
         inTileInfo = false;
     }
-    public void OpenFutureMenu()
+    public void OpenFutureMenu(string text)
     {
-        view.ShowFutureMenu();
+        view.ShowFutureMenu(text);
         inFuture = true;
         inMenu = true;
         inButton = false;
