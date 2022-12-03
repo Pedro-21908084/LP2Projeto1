@@ -14,6 +14,9 @@ public class MenusController : MonoBehaviour
     [SerializeField] private string GameScene;
     private bool gameOnPause;
     private CameraController cameraController;
+    [SerializeField] private Component viewComponent;
+    [SerializeField] private DisplayLoadMapNames displayLoadMapNames;
+    private IGameView view;
 
     private void Awake()
     {
@@ -23,7 +26,12 @@ public class MenusController : MonoBehaviour
             controller = GetComponent<Controller>();
             cameraController = FindObjectOfType<CameraController>();
         }else
+        {
             loadSystem = new LoadSystem();
+            if(viewComponent is IGameView)
+                view = viewComponent as IGameView;
+        }
+            
     }
     
     private void Start()
@@ -31,6 +39,8 @@ public class MenusController : MonoBehaviour
         if(!onMainMenu)
             cameraController.setUpLimits(controller.XPadding, controller.YPadding,
                 controller.mapSize.x, controller.mapSize.y);
+        else
+            displayLoadMapNames.SetMenusController(this);
     }
 
     private void Update()
@@ -84,7 +94,15 @@ public class MenusController : MonoBehaviour
 
     public void OpenLoadMenu()
     {
-        //view open load menu & hide gamemenu
+        displayLoadMapNames.ResetButtonList();
+        view.ShowLoadMenu();
+        displayLoadMapNames.CreateButton(loadSystem.MapsName.ToArray());
+    }
+
+    public void CloseLoadMenu()
+    {
+        displayLoadMapNames.ResetButtonList();
+        view.HideLoadMenu();
     }
 
     public void SelectMap(int index)
