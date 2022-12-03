@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMainMenu: 1
-  GameScene: TestLoader
+  GameScene: Game
   viewComponent: {fileID: 485147840}
   displayLoadMapNames: {fileID: 1292397535}
 --- !u!4 &294563515

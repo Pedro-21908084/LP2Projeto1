@@ -37,10 +37,15 @@ public class MenusController : MonoBehaviour
     private void Start()
     {
         if(!onMainMenu)
+        {
             cameraController.setUpLimits(controller.XPadding, controller.YPadding,
                 controller.mapSize.x, controller.mapSize.y);
-        else
-            displayLoadMapNames.SetMenusController(this);
+
+            view = controller.View;
+            loadSystem = controller.LoadSystem;
+        }
+            
+        displayLoadMapNames.SetMenusController(this);
     }
 
     private void Update()
@@ -50,22 +55,27 @@ public class MenusController : MonoBehaviour
             if(Input.GetButtonDown("Cancel"))
                 PauseToogle();
 
-            cameraController.CameraMoveHorizontal(Input.GetAxis("Horizontal"));
-            cameraController.CameraMoveVertically(Input.GetAxis("Vertical"));
+            if(!gameOnPause)
+            {
+                cameraController.CameraMoveHorizontal(Input.GetAxis("Horizontal"));
+                cameraController.CameraMoveVertically(Input.GetAxis("Vertical"));
 
-            if(Input.GetAxis("Mouse ScrollWheel") > 0)
-            {
-                cameraController.ZoomOut();
-            }else if(Input.GetAxis("Mouse ScrollWheel") < 0)
-            {
-                cameraController.ZoomIn();
+                if(Input.GetAxis("Mouse ScrollWheel") > 0)
+                {
+                    cameraController.ZoomOut();
+                }else if(Input.GetAxis("Mouse ScrollWheel") < 0)
+                {
+                    cameraController.ZoomIn();
+                }
+
+                if(Input.GetMouseButton(1))
+                {
+                    cameraController.CameraMoveHorizontal(-Input.GetAxis("Mouse X"));
+                    cameraController.CameraMoveVertically(-Input.GetAxis("Mouse Y"));
+                }
             }
 
-            if(Input.GetMouseButton(1))
-            {
-                cameraController.CameraMoveHorizontal(-Input.GetAxis("Mouse X"));
-                cameraController.CameraMoveVertically(-Input.GetAxis("Mouse Y"));
-            }
+            
         }
     }
 
@@ -74,11 +84,11 @@ public class MenusController : MonoBehaviour
         
         if(gameOnPause)
         {
-            //call view to stop pause
+            view.HideButtons();
             gameOnPause = false;
         }else
         {
-            //call view to pause
+            view.ShowPauseMenu();
             gameOnPause = true;
         }
         
@@ -122,6 +132,8 @@ public class MenusController : MonoBehaviour
         }
             
     }
+
+    
 
     public void QuitGame()
     {
