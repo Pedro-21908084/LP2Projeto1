@@ -55,6 +55,7 @@ public class LoadSystem
             }else
             {
                 MapsFound.Clear();
+                MapsName.Clear();
                 foreach(string file in files)
                 {
                     MapsFound.Add(file);

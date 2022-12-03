@@ -101,8 +101,9 @@ public class MenusController : MonoBehaviour
 
     public void ResetMapList()
     {
-        loadSystem.SearchForMaps();
+        
         displayLoadMapNames.ResetButtonList();
+        loadSystem.SearchForMaps();
         displayLoadMapNames.CreateButton(loadSystem.MapsName.ToArray());
     }
 
