@@ -2365,7 +2365,7 @@ MonoBehaviour:
   PauseMenu: {fileID: 1600108472}
   FutureMenu: {fileID: 601771046}
   LoadMenu: {fileID: 1628543700}
-  BackgroundImage: {fileID: 0}
+  UiMessage: {fileID: 480738670}
   TerrTypeTxt: {fileID: 1385552120}
   ResourcesTxt: {fileID: 1104301294}
   TotalCoinTxt: {fileID: 1444952906}
@@ -2378,12 +2378,12 @@ MonoBehaviour:
   - {fileID: 1031139029}
   - {fileID: 1891714986}
   - {fileID: 208152013}
-  UiMessage: {fileID: 480738670}
   instStart: {fileID: 436864682}
-  resourcePrefab: {fileID: 2633289916812723951, guid: 1af61a9dd07c70a41af1e3a5e93c587c, type: 3}
-  terrainPrefab: {fileID: 2482319975058276425, guid: c42c4487165f3b04fb2a6cb161091887, type: 3}
   <XPadding>k__BackingField: 0
   <YPadding>k__BackingField: 0
+  resourcePrefab: {fileID: 2633289916812723951, guid: 1af61a9dd07c70a41af1e3a5e93c587c, type: 3}
+  terrainPrefab: {fileID: 2482319975058276425, guid: c42c4487165f3b04fb2a6cb161091887, type: 3}
+  detectionRadius: 0
 --- !u!1 &487953051
 GameObject:
   m_ObjectHideFlags: 0
@@ -5645,7 +5645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1252394127
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7255,8 +7255,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b8e031a7496904085cbbcdeb1a8fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topLefMapPoint: {fileID: 0}
   <maxZoomIn>k__BackingField: 10
   <maxZoomOut>k__BackingField: 1
+  moveVelocity: 0
+  zooomVelocity: 0
+  characterController: {fileID: 0}
 --- !u!1 &1628543700
 GameObject:
   m_ObjectHideFlags: 0

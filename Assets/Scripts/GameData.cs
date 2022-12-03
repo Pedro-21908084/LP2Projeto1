@@ -1,5 +1,10 @@
 using System.Collections.Generic;
 
+/// <summary>
+/// Stores and provides information about configured terrains
+/// and resources (ScriptableObjects).
+/// An instance of this class is set up by the controller.
+/// </summary>
 public class GameData
 {
     private IDictionary<string, TerrainData> terrains;
