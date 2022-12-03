@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class GameDisplay : MonoBehaviour, IGameView
 {
+    //References
+    private Controller controller;
+    private GameData gameData;
+
+    //Menu GameObjects
     [SerializeField]
     private GameObject TileInfoPanel;
     [SerializeField]
@@ -17,7 +22,9 @@ public class GameDisplay : MonoBehaviour, IGameView
     [SerializeField]
     private GameObject LoadMenu;
     [SerializeField]
-    private GameObject BackgroundImage;
+    private GameObject UiMessage;
+
+    //Tile Info Slots
     [SerializeField]
     private TextMeshProUGUI TerrTypeTxt;
     [SerializeField]
@@ -30,32 +37,26 @@ public class GameDisplay : MonoBehaviour, IGameView
     private TextMeshProUGUI uiMessageText;
     [SerializeField]
     private Image terrainIcon;
+
+    //Buttons
     [SerializeField]
     private List<Button> gameButtons;
-    [SerializeField]
-    private GameObject UiMessage;
-
+    
+    //Map Instantiation
     [SerializeField]
     private Transform instStart;
-
-    [SerializeField]
-    private GameObject resourcePrefab;
-
-    [SerializeField]
-    private GameObject terrainPrefab;
-
     [field:SerializeField]
     public float XPadding { get; set; }
     [field: SerializeField]
     public float YPadding { get; set; }
-
+    [SerializeField]
+    private GameObject resourcePrefab;
+    [SerializeField]
+    private GameObject terrainPrefab;
     private GameObject[][] terrainsStored;
-
     private List<GameObject>[][] terrResourcesStored;
 
-    private Controller controller;
-
-    private GameData gameData;
+    
 
     public void SetupDisplay(Controller controller, float xPadding, float yPadding, GameData gameData)
     {
@@ -72,6 +73,9 @@ public class GameDisplay : MonoBehaviour, IGameView
         HideUIMessage();
     }
 
+    /// <summary>
+    /// Activates all buttons in a button List
+    /// </summary>
     public void ShowButtons()
     {
         foreach (Button button in gameButtons)
@@ -79,7 +83,9 @@ public class GameDisplay : MonoBehaviour, IGameView
             button.gameObject.SetActive(true);
         }
     }
-
+    /// <summary>
+    /// Deactivates all butons in a button List
+    /// </summary>
     public void HideButtons() 
     {
         foreach (Button button in gameButtons)
@@ -89,6 +95,10 @@ public class GameDisplay : MonoBehaviour, IGameView
         }
     }
 
+    /// <summary>
+    /// Instantiates a map of Tiles
+    /// </summary>
+    /// <param name="map">Bidimensional array of Tiles</param>
     public void ShowMap(Tile[][] map)
     {
         terrainsStored = new GameObject[map.Length][];
@@ -111,6 +121,9 @@ public class GameDisplay : MonoBehaviour, IGameView
         }
     }
 
+    /// <summary>
+    /// Displays Map Legend Game Object
+    /// </summary>
     public void ShowMapLegend()
     {
         MapLegend.SetActive(true);
@@ -123,11 +136,17 @@ public class GameDisplay : MonoBehaviour, IGameView
         HidePauseMenu();
     }
 
+    /// <summary>
+    /// Hides Map Legend Game Object
+    /// </summary>
     public void HideMapLegend()
     {
         MapLegend.SetActive(false);
     }
 
+    /// <summary>
+    /// Displays Pause Menu GameObject
+    /// </summary>
     public void ShowPauseMenu()
     {
         PauseMenu.SetActive(true);
@@ -140,12 +159,19 @@ public class GameDisplay : MonoBehaviour, IGameView
         HideUIMessage();
         HideUIMessage();
     }
+
+    /// <summary>
+    /// Hides Pause Menu GameObject
+    /// </summary>
     public void HidePauseMenu()
     {
         PauseMenu.SetActive(true);
         Time.timeScale = 1;
     }
 
+    /// <summary>
+    /// Displays Tile Info GameObject and all Tile information in each respective text and image slot
+    /// </summary>
     public void ShowTileInfo(Tile tile)
     {
         TileInfoPanel.SetActive(true);
@@ -166,21 +192,34 @@ public class GameDisplay : MonoBehaviour, IGameView
         HideFutureMenu();
     }
 
+    /// <summary>
+    /// Hides Tile Info GameObject
+    /// </summary>
     public void HideTileInfo()
     {
         TileInfoPanel.SetActive(false);
     }
 
-    public void ShowTileResources(Tile tile, GameObject tileObject, List<GameObject> resourceList)
+    /// <summary>
+    /// Instantiates each resource prefab of a Tile in a randomly chosen position on top of the terrain
+    /// </summary>
+    /// <param name="tile">The Tile</param>
+    /// <param name="terrainPrefab">The terrain prefab</param>
+    /// <param name="resourceList">The Tile's resource List</param>
+    public void ShowTileResources(Tile tile, GameObject terrainPrefab, List<GameObject> resourceList)
     {
         resourceList = new List<GameObject>();
         foreach (Resource resource in tile.Resources)
         {
             resourcePrefab.GetComponent<Image>().sprite = gameData.GetResource(resource.Type).sprite;
-            resourceList.Add(Instantiate(resourcePrefab, tileObject.GetComponent<TileController>().GetIconInstArea(), new Quaternion(), tileObject.transform));
+            resourceList.Add(Instantiate(resourcePrefab, terrainPrefab.GetComponent<TileController>().GetIconInstArea(), new Quaternion(), terrainPrefab.transform));
         }
     }
 
+    /// <summary>
+    /// Displays UI Message GameObject
+    /// </summary>
+    /// <param name="message"></param>
     public void ShowUIMessage(string message)
     {
         UiMessage.SetActive(true);
@@ -192,11 +231,18 @@ public class GameDisplay : MonoBehaviour, IGameView
         HidePauseMenu();
         HideTileInfo();
     }
+
+    /// <summary>
+    /// Hides UI Message GameObject
+    /// </summary>
     public void HideUIMessage()
     {
         UiMessage.SetActive(false);
     }
 
+    /// <summary>
+    /// Displays Future Menu GameObject
+    /// </summary>
     public void ShowFutureMenu()
     {
         FutureMenu.SetActive(true);
@@ -208,11 +254,17 @@ public class GameDisplay : MonoBehaviour, IGameView
         HideUIMessage();
     }
 
+    /// <summary>
+    /// Hides Future Menu GameObject
+    /// </summary>
     public void HideFutureMenu()
     {
         FutureMenu.SetActive(false);
     }
 
+    /// <summary>
+    /// Displays Load Menu GameObject
+    /// </summary>
     public void ShowLoadMenu()
     {
         LoadMenu.SetActive(true);
@@ -224,6 +276,9 @@ public class GameDisplay : MonoBehaviour, IGameView
         HideUIMessage();
     }
 
+    /// <summary>
+    /// Hides Load Menu GameObject
+    /// </summary>
     public void HideLoadMenu()
     {
         LoadMenu.SetActive(false);

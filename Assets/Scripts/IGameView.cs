@@ -9,7 +9,7 @@ public interface IGameView
     //Methods
     public void SetupDisplay(Controller controller, float xPadding, float yPadding, GameData gameData);
     public void ShowMap(Tile[][] map);
-    public void ShowTileResources(Tile tile, GameObject gameObject, List<GameObject> resourceList);
+    public void ShowTileResources(Tile tile, GameObject terrainPrefab, List<GameObject> resourceList);
     public void ShowButtons();
     public void HideButtons();
     public void ShowTileInfo(Tile tile);
