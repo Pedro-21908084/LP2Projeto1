@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 208152015}
   - component: {fileID: 208152014}
   - component: {fileID: 208152013}
+  - component: {fileID: 208152017}
   m_Layer: 5
   m_Name: ForTheFuture5
   m_TagString: Untagged
@@ -512,10 +513,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 339043511}
-        m_TargetAssemblyTypeName: MenusController, Assembly-CSharp
-        m_MethodName: OpenFutureMenu
-        m_Mode: 5
+      - m_Target: {fileID: 208152017}
+        m_TargetAssemblyTypeName: ForTheFutureButtons, Assembly-CSharp
+        m_MethodName: ButtonMethod
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -583,6 +584,21 @@ RectTransform:
   m_AnchoredPosition: {x: 318, y: 212}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &208152017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208152012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0b72d5202ded1478edc3fce0c7d824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 339043509}
+  menusController: {fileID: 339043511}
+  text: For the Future 5
 --- !u!1 &212383847
 GameObject:
   m_ObjectHideFlags: 0
@@ -5944,6 +5960,7 @@ GameObject:
   - component: {fileID: 1031139028}
   - component: {fileID: 1031139027}
   - component: {fileID: 1031139029}
+  - component: {fileID: 1031139030}
   m_Layer: 5
   m_Name: ForTheFuture3
   m_TagString: Untagged
@@ -6054,10 +6071,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 339043511}
-        m_TargetAssemblyTypeName: MenusController, Assembly-CSharp
-        m_MethodName: OpenFutureMenu
-        m_Mode: 5
+      - m_Target: {fileID: 1031139030}
+        m_TargetAssemblyTypeName: ForTheFutureButtons, Assembly-CSharp
+        m_MethodName: ButtonMethod
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6066,6 +6083,21 @@ MonoBehaviour:
           m_StringArgument: For the Future 3
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1031139030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031139025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0b72d5202ded1478edc3fce0c7d824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 339043509}
+  menusController: {fileID: 339043511}
+  text: For the Future 3
 --- !u!1 &1043698897
 GameObject:
   m_ObjectHideFlags: 0
@@ -10183,6 +10215,7 @@ GameObject:
   - component: {fileID: 1840040389}
   - component: {fileID: 1840040388}
   - component: {fileID: 1840040390}
+  - component: {fileID: 1840040391}
   m_Layer: 5
   m_Name: ForTheFuture2
   m_TagString: Untagged
@@ -10293,10 +10326,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 339043511}
-        m_TargetAssemblyTypeName: MenusController, Assembly-CSharp
-        m_MethodName: OpenFutureMenu
-        m_Mode: 5
+      - m_Target: {fileID: 1840040391}
+        m_TargetAssemblyTypeName: ForTheFutureButtons, Assembly-CSharp
+        m_MethodName: ButtonMethod
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10305,6 +10338,21 @@ MonoBehaviour:
           m_StringArgument: For The Future 2
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1840040391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840040386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0b72d5202ded1478edc3fce0c7d824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 339043509}
+  menusController: {fileID: 339043511}
+  text: For The Future 2
 --- !u!1 &1887363927
 GameObject:
   m_ObjectHideFlags: 0
@@ -10452,6 +10500,7 @@ GameObject:
   - component: {fileID: 1891714985}
   - component: {fileID: 1891714984}
   - component: {fileID: 1891714986}
+  - component: {fileID: 1891714987}
   m_Layer: 5
   m_Name: ForTheFuture4
   m_TagString: Untagged
@@ -10562,10 +10611,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 339043511}
-        m_TargetAssemblyTypeName: MenusController, Assembly-CSharp
-        m_MethodName: OpenFutureMenu
-        m_Mode: 5
+      - m_Target: {fileID: 1891714987}
+        m_TargetAssemblyTypeName: ForTheFutureButtons, Assembly-CSharp
+        m_MethodName: ButtonMethod
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10574,6 +10623,21 @@ MonoBehaviour:
           m_StringArgument: For the Future 4
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1891714987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891714982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0b72d5202ded1478edc3fce0c7d824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 339043509}
+  menusController: {fileID: 339043511}
+  text: For the Future 4
 --- !u!1 &1901422274
 GameObject:
   m_ObjectHideFlags: 0
@@ -11316,6 +11380,7 @@ GameObject:
   - component: {fileID: 2027848584}
   - component: {fileID: 2027848583}
   - component: {fileID: 2027848585}
+  - component: {fileID: 2027848586}
   m_Layer: 5
   m_Name: ForTheFuture1
   m_TagString: Untagged
@@ -11426,10 +11491,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 339043511}
-        m_TargetAssemblyTypeName: MenusController, Assembly-CSharp
-        m_MethodName: OpenFutureMenu
-        m_Mode: 5
+      - m_Target: {fileID: 2027848586}
+        m_TargetAssemblyTypeName: ForTheFutureButtons, Assembly-CSharp
+        m_MethodName: ButtonMethod
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11438,6 +11503,21 @@ MonoBehaviour:
           m_StringArgument: For The Future 1
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2027848586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027848581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0b72d5202ded1478edc3fce0c7d824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 339043509}
+  menusController: {fileID: 339043511}
+  text: For The Future 1
 --- !u!1 &2073957210
 GameObject:
   m_ObjectHideFlags: 0

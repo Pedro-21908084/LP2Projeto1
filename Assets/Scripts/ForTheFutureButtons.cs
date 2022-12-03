@@ -10,6 +10,6 @@ public class ForTheFutureButtons : MonoBehaviour
 
     public virtual void ButtonMethod()
     {
-        menusController.CloseFutureMenu();
+        menusController.OpenFutureMenu(text);
     }
 }
