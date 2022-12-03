@@ -31,6 +31,10 @@ Componente de mapa com distribuição de terrenos e recursos para um hipotético
 | <img src="images/resource-luxury.png" alt="Pollution" width="60" /> | Luxo |
 | <img src="images/resource-pollution.png" alt="Plantas" width="60" /> | Pollution |
 
+Ícones dos recursos retirados do pacote
+[2D ITEMS SET - HANDPAINTED](https://assetstore.unity.com/packages/2d/gui/icons/2d-items-set-handpainted-210729)
+de [Homeless](https://assetstore.unity.com/publishers/59942)
+
 ## Arquitetura do programa
 
 O código foi organizado de acordo com o modelo MVC. A representação em dados
