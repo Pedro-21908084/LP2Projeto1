@@ -56,9 +56,17 @@ public class Controller : MonoBehaviour
         if(mapIndex.HasValue)
         {
             Map = LoadSystem.LoadMapAt(mapIndex.Value, gameData);
-            mapSize =  new Vector2(Map[0].Length, Map.Length);
+            if(Map == null)
+            {
+                View.ShowUIMessage("Map coulnd't be loaded \n Check if map "+ 
+                    LoadSystem.MapsName[mapIndex.Value] + " exist or respects required nomenclature");
+            }else
+            {
+                mapSize =  new Vector2(Map[0].Length, Map.Length);
 
-            View.ShowMap(Map);
+                View.ShowMap(Map);
+            }
+            
         }
     }
 }

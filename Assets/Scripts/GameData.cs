@@ -16,6 +16,16 @@ public class GameData
         this.terrains = terrains;
         this.resources = resources;
     }
+
+    public bool ContainsTerrain(string key)
+    {
+        return terrains.ContainsKey(key);
+    }
+
+    public bool ContainsResource(string key)
+    {
+        return resources.ContainsKey(key);
+    }
     
     public TerrainData GetTerrain(string key)
     {

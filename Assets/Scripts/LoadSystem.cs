@@ -136,8 +136,13 @@ public class LoadSystem
                         if(noComments.Length > 0)
                         {
                             string[] commands = noComments.Trim().Split(" ");
+                            TerrainData tData;
 
-                            TerrainData tData = game.GetTerrain(commands[0]);
+                            if(game.ContainsTerrain(commands[0]))
+                                tData = game.GetTerrain(commands[0]);
+                            else
+                                return null;
+
                             Terrain terrain = new Terrain(tData.key, tData.coin, tData.food);
 
                             Resource[] resources = new Resource[commands.Length-1];
@@ -146,12 +151,20 @@ public class LoadSystem
                             {
                                 for(int l = 1; l < commands.Length; l ++)
                                 {
-                                    ResourceData rData = game.GetResource(commands[l]);
+                                    ResourceData rData;
+                                    if(game.ContainsResource(commands[l]))
+                                        rData = game.GetResource(commands[l]);
+                                    else
+                                        return null;
+                                    
+                                    if(rData == null)
+                                        return null;
                                     
                                     resources[l-1] = new Resource(rData.key, 
                                         rData.coinModifier, rData.foodModifier);
                                 }
                             }
+
                             map[i][j] = new Tile(terrain, resources);
                         }
                     }
