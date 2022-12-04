@@ -14,11 +14,17 @@ public class LoadSystem
     public List<string> MapsName{get; private set;}
     private string path;
 
+    /// <summary>
+    /// Saves the string given,map , to load after.
+    /// </summary>
     public static void SaveMapName(string map)
     {
         PlayerPrefs.SetString(MAP_TO_LOAD, map);
     }
 
+    /// <summary>
+    /// Checks if exist a map with the the map name saved.
+    /// </summary>
     public int? MapToLoad()
     {
         string mapToLoad = PlayerPrefs.GetString(MAP_TO_LOAD);
@@ -43,6 +49,9 @@ public class LoadSystem
         SearchForMaps();
     }
 
+    /// <summary>
+    /// Searchs for maps in the given folder, storing them and their name.
+    /// </summary>
     public void SearchForMaps()
     {
         if(Directory.Exists(path))
@@ -70,6 +79,9 @@ public class LoadSystem
         }
     }
 
+    /// <summary>
+    /// Loads the map in the path of the given index using the gamedata passed.
+    /// </summary>
     public Tile[][] LoadMapAt(int index, GameData game)
     {
         Tile[][] map;

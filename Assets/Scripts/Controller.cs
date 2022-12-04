@@ -46,11 +46,9 @@ public class Controller : MonoBehaviour
         LoadMap();
     }
 
-    private void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Checks if exist a map to load, if so loads it and shows on screen.
+    /// </summary>
     private void LoadMap()
     {
         int? mapIndex = LoadSystem.MapToLoad();
@@ -62,7 +60,5 @@ public class Controller : MonoBehaviour
 
             View.ShowMap(Map);
         }
-
-        
     }
 }

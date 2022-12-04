@@ -161,6 +161,11 @@ public class MenusController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if game is paused or not, if so unpauses the game opther wises 
+    ///cheks if there is a menu open, if so closes the menu, otherwise pauses 
+    ///the game.
+    /// </summary>
     public void PauseToogle()
     {
         
@@ -190,6 +195,9 @@ public class MenusController : MonoBehaviour
         
     }
     
+    /// <summary>
+    /// Loads the scene with the given name, sceneToLoad, if it exist.
+    /// </summary>
     public void LoadScene(string sceneToLoad)
     {
         int index = SceneUtility.GetBuildIndexByScenePath(SCENE_PATH + sceneToLoad + SCENE_EXTENTION);
@@ -205,9 +213,11 @@ public class MenusController : MonoBehaviour
         displayLoadMapNames.CreateButton(loadSystem.MapsName.ToArray());
     }
 
+    /// <summary>
+    /// Updates the map list and shows the nw list.
+    /// </summary>
     public void ResetMapList()
     {
-        
         displayLoadMapNames.ResetButtonList();
         loadSystem.SearchForMaps();
         displayLoadMapNames.CreateButton(loadSystem.MapsName.ToArray());
@@ -219,6 +229,9 @@ public class MenusController : MonoBehaviour
         view.HideLoadMenu();
     }
 
+    /// <summary>
+    /// Loads a map in the given index if it exist.
+    /// </summary>
     public void SelectMap(int index)
     {
         if(index >= 0 && index < loadSystem.MapsFound.Count)
@@ -226,11 +239,8 @@ public class MenusController : MonoBehaviour
             LoadSystem.SaveMapName(loadSystem.MapsFound[index]);
             LoadScene(GameScene);
         }
-            
     }
-
     
-
     public void QuitGame()
     {
         Application.Quit();

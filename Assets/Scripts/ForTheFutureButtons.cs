@@ -8,6 +8,9 @@ public class ForTheFutureButtons : MonoBehaviour
     [SerializeField] private MenusController menusController;
     [SerializeField] private string text;
 
+    /// <summary>
+    /// Method for the future buttons.
+    /// </summary>
     public virtual void ButtonMethod()
     {
         menusController.OpenFutureMenu(text);

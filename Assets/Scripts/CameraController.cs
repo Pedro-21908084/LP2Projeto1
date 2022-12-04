@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
     }
 
     /// <summary>
-    /// Increases main camera´s ortographic size
+    /// Increases main cameraï¿½s ortographic size
     /// </summary>
     public void ZoomIn()
     {
@@ -45,7 +45,7 @@ public class CameraController : MonoBehaviour
     }
 
     /// <summary>
-    /// Increases main camera´s ortographic size
+    /// Increases main cameraï¿½s ortographic size
     /// </summary>
     public void ZoomOut()
     {
@@ -60,6 +60,9 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Moves the cameraon the X axis depending on the force given.
+    /// </summary>
     public void CameraMoveHorizontal(float force) 
     {
         characterController.Move(new Vector3( moveVelocity * force * ZoomModifier, 0, 0));
@@ -77,6 +80,10 @@ public class CameraController : MonoBehaviour
             characterController.enabled = true;
         }
     }
+
+    /// <summary>
+    /// Moves the cameraon the Y axis depending on the force given.
+    /// </summary>
     public void CameraMoveVertically(float force) 
     {
         characterController.Move(new Vector3( 0, moveVelocity * force * ZoomModifier, 0));
