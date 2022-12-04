@@ -236,7 +236,7 @@ public class GameDisplay : MonoBehaviour, IGameView
                 resourceIconPos = terrainPrefab.GetComponent<TileController>().GetIconInstArea();
             } while (Physics2D.OverlapCircle(resourceIconPos, detectionRadius) != null);
             
-            resourceList.Add(Instantiate(resourcePrefab, terrainPrefab.GetComponent<TileController>().GetIconInstArea(), new Quaternion(), terrainPrefab.transform));
+            resourceList.Add(Instantiate(resourcePrefab, resourceIconPos, new Quaternion(), terrainPrefab.transform));
         }
     }
 

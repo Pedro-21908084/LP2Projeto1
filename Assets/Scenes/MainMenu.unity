@@ -2447,7 +2447,7 @@ MonoBehaviour:
   <YPadding>k__BackingField: 0
   resourcePrefab: {fileID: 2633289916812723951, guid: 1af61a9dd07c70a41af1e3a5e93c587c, type: 3}
   terrainPrefab: {fileID: 2482319975058276425, guid: c42c4487165f3b04fb2a6cb161091887, type: 3}
-  detectionRadius: 0
+  detectionRadius: 20
 --- !u!1 &487953051
 GameObject:
   m_ObjectHideFlags: 0
@@ -9455,7 +9455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.6871033, y: 2.6586}
+  m_AnchoredPosition: {x: -3.6871338, y: 2.6585999}
   m_SizeDelta: {x: -284.39, y: -39.847}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1857248980
