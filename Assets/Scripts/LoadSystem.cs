@@ -103,7 +103,7 @@ public class LoadSystem
             do
             {
                 string line = mapRead.ReadLine();
-                string noComments =  line.Split(COMMENT_SYMBOL)[0];
+                string noComments =  line.Split(COMMENT_SYMBOL)[0].Trim();
                 
                 if(noComments.Length > 0)
                 {
